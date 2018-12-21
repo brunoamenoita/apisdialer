@@ -1,0 +1,1567 @@
+<!doctype html>
+<html>
+  <head>
+    <title>APIS Integration Dialer Catix4</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>APIS Integration Dialer Catix4</h1>
+    <div class="app-desc">Documentação APIS - Dialer Catix4</div>
+    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+    <div class="app-desc">Contact Info: <a href="desenvolvimento@optjuntos.com.br">desenvolvimento@optjuntos.com.br</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="app-desc">BasePath:/</div>
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Campaigns">Campaigns</a></h4>
+  <ul>
+  <li><a href="#addCampaign"><code><span class="http-method">post</span> /campaigns</code></a></li>
+  <li><a href="#campaignsActiveGet"><code><span class="http-method">get</span> /campaigns/active</code></a></li>
+  <li><a href="#campaignsDeleteDelete"><code><span class="http-method">delete</span> /campaigns/delete</code></a></li>
+  <li><a href="#campaignsDisableGet"><code><span class="http-method">get</span> /campaigns/disable</code></a></li>
+  <li><a href="#campaignsGetAllGet"><code><span class="http-method">get</span> /campaigns/get-all</code></a></li>
+  <li><a href="#campaignsRedialStartGet"><code><span class="http-method">get</span> /campaigns/redial/start</code></a></li>
+  <li><a href="#campaignsRedialStopGet"><code><span class="http-method">get</span> /campaigns/redial/stop</code></a></li>
+  <li><a href="#campaignsStartGet"><code><span class="http-method">get</span> /campaigns/start</code></a></li>
+  <li><a href="#campaignsStopGet"><code><span class="http-method">get</span> /campaigns/stop</code></a></li>
+  <li><a href="#deleteCampaignId"><code><span class="http-method">delete</span> /campaigns/delete/{campaign_uuid}</code></a></li>
+  <li><a href="#getActiveCampaignId"><code><span class="http-method">get</span> /campaigns/active/{campaign_uuid}</code></a></li>
+  <li><a href="#getCampaignId"><code><span class="http-method">get</span> /campaigns/get-by-id/{campaign_uuid}</code></a></li>
+  <li><a href="#getDisableCampaignId"><code><span class="http-method">get</span> /campaigns/disable/{campaign_uuid}</code></a></li>
+  <li><a href="#getRedialStartCampaignId"><code><span class="http-method">get</span> /campaigns/redial/start/{campaign_uuid}</code></a></li>
+  <li><a href="#getRedialStopCampaignId"><code><span class="http-method">get</span> /campaigns/redial/stop/{campaign_uuid}</code></a></li>
+  <li><a href="#getStartCampaignId"><code><span class="http-method">get</span> /campaigns/start/{campaign_uuid}</code></a></li>
+  <li><a href="#getStopCampaignId"><code><span class="http-method">get</span> /campaigns/stop/{campaign_uuid}</code></a></li>
+  <li><a href="#updateCampaign"><code><span class="http-method">put</span> /campaigns</code></a></li>
+  </ul>
+  <h4><a href="#CampaignsContact">CampaignsContact</a></h4>
+  <ul>
+  <li><a href="#addCampaignsContact"><code><span class="http-method">post</span> /campaigns-contact/</code></a></li>
+  <li><a href="#campaignsContactGetAllGet"><code><span class="http-method">get</span> /campaigns-contact/get-all</code></a></li>
+  <li><a href="#deleteCampaignsContactId"><code><span class="http-method">delete</span> /campaigns-contact/delete/{campaigns_contact_uuid}</code></a></li>
+  <li><a href="#getCampaignsContactId"><code><span class="http-method">get</span> /campaigns-contact/get-by-id/{campaigns_contact_uuid}</code></a></li>
+  <li><a href="#updateCampaignsContact"><code><span class="http-method">put</span> /campaigns-contact/</code></a></li>
+  </ul>
+  <h4><a href="#CampaignsContactCalls">CampaignsContactCalls</a></h4>
+  <ul>
+  <li><a href="#addCampaignsContactCalls"><code><span class="http-method">post</span> /campaigns-contact-calls/</code></a></li>
+  <li><a href="#campaignsContactCallsGetAllGet"><code><span class="http-method">get</span> /campaigns-contact-calls/get-all</code></a></li>
+  <li><a href="#deleteCampaignsContactCallId"><code><span class="http-method">delete</span> /campaigns-contact-calls/delete/{campaigns_contact_call_uuid}</code></a></li>
+  <li><a href="#getCampaignsCallsContactId"><code><span class="http-method">get</span> /campaigns-contact-calls/get-by-id/{campaigns_contact_call_uuid}</code></a></li>
+  <li><a href="#updateCampaignsContactCalls"><code><span class="http-method">put</span> /campaigns-contact-calls/</code></a></li>
+  </ul>
+  <h4><a href="#MailingContacts">MailingContacts</a></h4>
+  <ul>
+  <li><a href="#addMailingContacts"><code><span class="http-method">post</span> /campaigns-contact/mailing-contacts/</code></a></li>
+  <li><a href="#updateMailingContacts"><code><span class="http-method">put</span> /campaigns-contact/mailing-contacts/</code></a></li>
+  </ul>
+
+  <h1><a name="Campaigns">Campaigns</a></h1>
+  <div class="method"><a name="addCampaign"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /campaigns</code></pre></div>
+    <div class="method-summary">Add a new campaigns (<span class="nickname">addCampaign</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Campaign">Campaign</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="campaignsActiveGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns/active</code></pre></div>
+    <div class="method-summary">Active All Campaigns (<span class="nickname">campaignsActiveGet</span>)</div>
+    <div class="method-notes">Ativa todas campanhas</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="campaignsDeleteDelete"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /campaigns/delete</code></pre></div>
+    <div class="method-summary">Deletes all campaigns (<span class="nickname">campaignsDeleteDelete</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="campaignsDisableGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns/disable</code></pre></div>
+    <div class="method-summary">Disable All Campaigns (<span class="nickname">campaignsDisableGet</span>)</div>
+    <div class="method-notes">Desativa todas campanhas</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="campaignsGetAllGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns/get-all</code></pre></div>
+    <div class="method-summary">Finds All Campaigns (<span class="nickname">campaignsGetAllGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="campaignsRedialStartGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns/redial/start</code></pre></div>
+    <div class="method-summary">Redial Start All Campaigns (<span class="nickname">campaignsRedialStartGet</span>)</div>
+    <div class="method-notes">Inicia a rediscagem de todas campanhas ativas</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="campaignsRedialStopGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns/redial/stop</code></pre></div>
+    <div class="method-summary">Redial Stop All Campaigns (<span class="nickname">campaignsRedialStopGet</span>)</div>
+    <div class="method-notes">Encerra a rediscagem de todas campanhas ativas</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="campaignsStartGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns/start</code></pre></div>
+    <div class="method-summary">Start All Campaigns (<span class="nickname">campaignsStartGet</span>)</div>
+    <div class="method-notes">Inicia a discagem de todas campanhas ativas</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="campaignsStopGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns/stop</code></pre></div>
+    <div class="method-summary">Stop All Campaigns (<span class="nickname">campaignsStopGet</span>)</div>
+    <div class="method-notes">Encerra a discagem de todas campanhas ativas</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteCampaignId"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /campaigns/delete/{campaign_uuid}</code></pre></div>
+    <div class="method-summary">Deletes a campaigns unic (<span class="nickname">deleteCampaignId</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">campaign_uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Campaign id to delete format: int4</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getActiveCampaignId"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns/active/{campaign_uuid}</code></pre></div>
+    <div class="method-summary">Active campaigns by ID (<span class="nickname">getActiveCampaignId</span>)</div>
+    <div class="method-notes">Ativa uma campanha específica</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">campaign_uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of active campaign to return format: int4</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCampaignId"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns/get-by-id/{campaign_uuid}</code></pre></div>
+    <div class="method-summary">Find campaigns by ID (<span class="nickname">getCampaignId</span>)</div>
+    <div class="method-notes">Returns a single campaign</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">campaign_uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of campaign to return format: int4</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Campaign_Result">Campaign_Result</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#Campaign_Result">Campaign_Result</a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getDisableCampaignId"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns/disable/{campaign_uuid}</code></pre></div>
+    <div class="method-summary">Disable campaigns by ID (<span class="nickname">getDisableCampaignId</span>)</div>
+    <div class="method-notes">Desativa uma campanha específica</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">campaign_uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of campaign to return format: int4</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getRedialStartCampaignId"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns/redial/start/{campaign_uuid}</code></pre></div>
+    <div class="method-summary">Redial Start campaigns by ID (<span class="nickname">getRedialStartCampaignId</span>)</div>
+    <div class="method-notes">Inicia a rediscagem de uma campanha específica</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">campaign_uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of campaign to return format: int4</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getRedialStopCampaignId"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns/redial/stop/{campaign_uuid}</code></pre></div>
+    <div class="method-summary">Redial stop campaigns by ID (<span class="nickname">getRedialStopCampaignId</span>)</div>
+    <div class="method-notes">Encerra a rediscagem de uma campanha específica</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">campaign_uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of reidla stop campaign to return format: int4</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getStartCampaignId"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns/start/{campaign_uuid}</code></pre></div>
+    <div class="method-summary">Start campaigns by ID (<span class="nickname">getStartCampaignId</span>)</div>
+    <div class="method-notes">Inicia a discagem de uma campanha específica</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">campaign_uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of start campaign to return format: int4</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getStopCampaignId"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns/stop/{campaign_uuid}</code></pre></div>
+    <div class="method-summary">Stop campaigns by ID (<span class="nickname">getStopCampaignId</span>)</div>
+    <div class="method-notes">Encerra a discagem de uma campanha específica</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">campaign_uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of stop campaign to return format: int4</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateCampaign"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /campaigns</code></pre></div>
+    <div class="method-summary">Update an existing campaigns (<span class="nickname">updateCampaign</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Campaign">Campaign</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="CampaignsContact">CampaignsContact</a></h1>
+  <div class="method"><a name="addCampaignsContact"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /campaigns-contact/</code></pre></div>
+    <div class="method-summary">Add a new campaigns-contact (<span class="nickname">addCampaignsContact</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Campaigns_Contact">Campaigns_Contact</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="campaignsContactGetAllGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns-contact/get-all</code></pre></div>
+    <div class="method-summary">Finds All Campaigns Contact (<span class="nickname">campaignsContactGetAllGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Campaigns_Contact_Result_All">Campaigns_Contact_Result_All</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#Campaigns_Contact_Result_All">Campaigns_Contact_Result_All</a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteCampaignsContactId"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /campaigns-contact/delete/{campaigns_contact_uuid}</code></pre></div>
+    <div class="method-summary">Deletes a campaigns-contact unic (<span class="nickname">deleteCampaignsContactId</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">campaigns_contact_uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Campaign id to delete format: int4</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCampaignsContactId"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns-contact/get-by-id/{campaigns_contact_uuid}</code></pre></div>
+    <div class="method-summary">Find campaigns-contact by ID (<span class="nickname">getCampaignsContactId</span>)</div>
+    <div class="method-notes">Returns a single campaign</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">campaigns_contact_uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of campaigns contact to return format: int4</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Campaigns_Contact_Result">Campaigns_Contact_Result</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#Campaigns_Contact_Result">Campaigns_Contact_Result</a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateCampaignsContact"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /campaigns-contact/</code></pre></div>
+    <div class="method-summary">Update an existing campaigns-contact (<span class="nickname">updateCampaignsContact</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Campaigns_Contact">Campaigns_Contact</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="CampaignsContactCalls">CampaignsContactCalls</a></h1>
+  <div class="method"><a name="addCampaignsContactCalls"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /campaigns-contact-calls/</code></pre></div>
+    <div class="method-summary">Add a new campaigns-contact-calls (<span class="nickname">addCampaignsContactCalls</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Campaigns_Contact_Calls">Campaigns_Contact_Calls</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign Contact Calls not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="campaignsContactCallsGetAllGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns-contact-calls/get-all</code></pre></div>
+    <div class="method-summary">Finds All Campaigns Contact Calls (<span class="nickname">campaignsContactCallsGetAllGet</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Campaigns_Contact_Calls_Result_All">Campaigns_Contact_Calls_Result_All</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#Campaigns_Contact_Calls_Result_All">Campaigns_Contact_Calls_Result_All</a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="deleteCampaignsContactCallId"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /campaigns-contact-calls/delete/{campaigns_contact_call_uuid}</code></pre></div>
+    <div class="method-summary">Deletes a campaigns-contact-call unic (<span class="nickname">deleteCampaignsContactCallId</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">campaigns_contact_call_uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Campaign Contact Call id to delete format: int4</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getCampaignsCallsContactId"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /campaigns-contact-calls/get-by-id/{campaigns_contact_call_uuid}</code></pre></div>
+    <div class="method-summary">Find campaigns-contact-calls by ID (<span class="nickname">getCampaignsCallsContactId</span>)</div>
+    <div class="method-notes">Returns a single campaign</div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">campaigns_contact_call_uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of campaigns contact call to return format: int4</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Campaigns_Contact_Calls_Result">Campaigns_Contact_Calls_Result</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#Campaigns_Contact_Calls_Result">Campaigns_Contact_Calls_Result</a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateCampaignsContactCalls"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /campaigns-contact-calls/</code></pre></div>
+    <div class="method-summary">Update an existing campaigns-contact-calls (<span class="nickname">updateCampaignsContactCalls</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Campaigns_Contact">Campaigns_Contact</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign Contact Cals not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="MailingContacts">MailingContacts</a></h1>
+  <div class="method"><a name="addMailingContacts"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /campaigns-contact/mailing-contacts/</code></pre></div>
+    <div class="method-summary">Add a new mailing-contacts (<span class="nickname">addMailingContacts</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Mailing_Contact_inner">Mailing_Contact_inner</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="updateMailingContacts"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /campaigns-contact/mailing-contacts/</code></pre></div>
+    <div class="method-summary">Update an existing mailing-contacts (<span class="nickname">updateMailingContacts</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#Mailing_Contact_inner">Mailing_Contact_inner</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    successful operation
+        <a href="#"></a>
+    <h4 class="field-label">400</h4>
+    Invalid ID supplied
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Campaign not found
+        <a href="#"></a>
+    <h4 class="field-label">405</h4>
+    Method Not Allowed
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+    <li><a href="#Campaign"><code>Campaign</code></a></li>
+    <li><a href="#Campaign_Result"><code>Campaign_Result</code></a></li>
+    <li><a href="#Campaign_Result_dados"><code>Campaign_Result_dados</code></a></li>
+    <li><a href="#Campaigns_Contact"><code>Campaigns_Contact</code></a></li>
+    <li><a href="#Campaigns_Contact_Calls"><code>Campaigns_Contact_Calls</code></a></li>
+    <li><a href="#Campaigns_Contact_Calls_Result"><code>Campaigns_Contact_Calls_Result</code></a></li>
+    <li><a href="#Campaigns_Contact_Calls_Result_All"><code>Campaigns_Contact_Calls_Result_All</code></a></li>
+    <li><a href="#Campaigns_Contact_Calls_Result_All_dados"><code>Campaigns_Contact_Calls_Result_All_dados</code></a></li>
+    <li><a href="#Campaigns_Contact_Calls_Result_dados"><code>Campaigns_Contact_Calls_Result_dados</code></a></li>
+    <li><a href="#Campaigns_Contact_Result"><code>Campaigns_Contact_Result</code></a></li>
+    <li><a href="#Campaigns_Contact_Result_All"><code>Campaigns_Contact_Result_All</code></a></li>
+    <li><a href="#Campaigns_Contact_Result_All_dados"><code>Campaigns_Contact_Result_All_dados</code></a></li>
+    <li><a href="#Campaigns_Contact_Result_dados"><code>Campaigns_Contact_Result_dados</code></a></li>
+    <li><a href="#Mailing_Contact"><code>Mailing_Contact</code></a></li>
+    <li><a href="#Mailing_Contact_inner"><code>Mailing_Contact_inner</code></a></li>
+  </ol>
+
+  <div class="model">
+    <h3><a name="Campaign"><code>Campaign</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">campaign_description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dialer_strategy_uuid </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Estratégia de Discagem format: int4</div>
+<div class="param">call_back_uuid </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Módulo de Discagem format: int4</div>
+<div class="param">campaign_day_week_1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Equivalente Domingo format: int4</div>
+<div class="param">campaign_day_week_2 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Equivalente Segunda-Feira format: int4</div>
+<div class="param">campaign_day_week_3 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Equivalente Terça-Feira format: int4</div>
+<div class="param">campaign_day_week_4 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Equivalente Quarta-Feira format: int4</div>
+<div class="param">campaign_day_week_5 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Equivalente Quinta-Feira format: int4</div>
+<div class="param">campaign_day_week_6 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Equivalente Sexta-Feira format: int4</div>
+<div class="param">campaign_day_week_7 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Equivalente Sábado format: int4</div>
+<div class="param">campaign_initial_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">campaign_initial_time (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">campaign_final_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">campaign_final_time (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">campaign_status </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 0-Desativada / 1-Ativada format: int4</div>
+<div class="param">campaign_redial_max (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Número máximo de rediscagem de um contanto format: int4</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Campaign_Result"><code>Campaign_Result</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">result (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">dados (optional)</div><div class="param-desc"><span class="param-type"><a href="#Campaign_Result_dados">Campaign_Result_dados</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Campaign_Result_dados"><code>Campaign_Result_dados</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">campaign_description (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">dialer_strategy_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Estratégia de Discagem format: int4</div>
+<div class="param">call_back_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Módulo de Discagem format: int4</div>
+<div class="param">campaign_day_week_1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Equivalente Domingo format: int4</div>
+<div class="param">campaign_day_week_2 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Equivalente Segunda-Feira format: int4</div>
+<div class="param">campaign_day_week_3 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Equivalente Terça-Feira format: int4</div>
+<div class="param">campaign_day_week_4 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Equivalente Quarta-Feira format: int4</div>
+<div class="param">campaign_day_week_5 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Equivalente Quinta-Feira format: int4</div>
+<div class="param">campaign_day_week_6 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Equivalente Sexta-Feira format: int4</div>
+<div class="param">campaign_day_week_7 (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Equivalente Sábado format: int4</div>
+<div class="param">campaign_initial_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">campaign_initial_time (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">campaign_final_date (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">campaign_final_time (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">campaign_status (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> 0-Desativada / 1-Ativada format: int4</div>
+<div class="param">campaign_redial_max (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Número máximo de rediscagem de um contanto format: int4</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Campaigns_Contact"><code>Campaigns_Contact</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">campaign_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id Campanha format: int4</div>
+<div class="param">crm_people_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id CRM Cliente Integração format: int4</div>
+<div class="param">campaigns_contact_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Nome do Contato </div>
+<div class="param">campaings_contact_sheet_text_1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_2 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_3 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_4 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_5 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Campaigns_Contact_Calls"><code>Campaigns_Contact_Calls</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">campaigns_contact_uuid </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id Tabela campaigns_contacts format: int4</div>
+<div class="param">campaign_uuid </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id Tabela campaign format: int4</div>
+<div class="param">crm_people_id </div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id CRM Cliente Integração format: int4</div>
+<div class="param">campaigns_contact_call_phone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Telefone Contato </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Campaigns_Contact_Calls_Result"><code>Campaigns_Contact_Calls_Result</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">result (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">dados (optional)</div><div class="param-desc"><span class="param-type"><a href="#Campaigns_Contact_Calls_Result_dados">Campaigns_Contact_Calls_Result_dados</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Campaigns_Contact_Calls_Result_All"><code>Campaigns_Contact_Calls_Result_All</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">result (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">dados (optional)</div><div class="param-desc"><span class="param-type"><a href="#Campaigns_Contact_Calls_Result_All_dados">Campaigns_Contact_Calls_Result_All_dados</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Campaigns_Contact_Calls_Result_All_dados"><code>Campaigns_Contact_Calls_Result_All_dados</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">campaigns_contact_call_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Autoincremental format: int4</div>
+<div class="param">campaigns_contact_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id Tabela campaigns_contacts format: int4</div>
+<div class="param">campaign_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id Tabela campaigns format: int4</div>
+<div class="param">crm_people_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id CRM Cliente Integração format: int4</div>
+<div class="param">campaigns_contact_call_phone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Telefone do Contato </div>
+<div class="param">createdAt (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Autoincremental format: timestamptz</div>
+<div class="param">updatedAt (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Autoincremental format: timestamptz</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Campaigns_Contact_Calls_Result_dados"><code>Campaigns_Contact_Calls_Result_dados</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">campaigns_contact_call_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Autoincremental format: int4</div>
+<div class="param">campaigns_contact_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id Tabela campaigns_contacts format: int4</div>
+<div class="param">campaign_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id Tabela campaigns format: int4</div>
+<div class="param">crm_people_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id CRM Cliente Integração format: int4</div>
+<div class="param">campaigns_contact_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Telefone Contato </div>
+<div class="param">createdAt (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Autoincremental format: timestamptz</div>
+<div class="param">updatedAt (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Autoincremental format: timestamptz</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Campaigns_Contact_Result"><code>Campaigns_Contact_Result</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">result (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">dados (optional)</div><div class="param-desc"><span class="param-type"><a href="#Campaigns_Contact_Result_dados">Campaigns_Contact_Result_dados</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Campaigns_Contact_Result_All"><code>Campaigns_Contact_Result_All</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">result (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">dados (optional)</div><div class="param-desc"><span class="param-type"><a href="#Campaigns_Contact_Result_All_dados">Campaigns_Contact_Result_All_dados</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Campaigns_Contact_Result_All_dados"><code>Campaigns_Contact_Result_All_dados</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">campaigns_contact_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id Tabela campaigns_contacts format: int4</div>
+<div class="param">campaign_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id Tabela campaigns format: int4</div>
+<div class="param">crm_people_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id CRM Cliente Integração format: int4</div>
+<div class="param">campaigns_contact_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Nome do Contato </div>
+<div class="param">campaings_contact_sheet_text_1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_2 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_3 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_4 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_5 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">createdAt (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Autoincremental format: timestamptz</div>
+<div class="param">updatedAt (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Autoincremental format: timestamptz</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Campaigns_Contact_Result_dados"><code>Campaigns_Contact_Result_dados</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">campaigns_contact_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id Tabela campaigns_contacts format: int4</div>
+<div class="param">campaign_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id Tabela campaigns format: int4</div>
+<div class="param">crm_people_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id CRM Cliente Integração format: int4</div>
+<div class="param">campaigns_contact_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Nome do Contato </div>
+<div class="param">campaings_contact_sheet_text_1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_2 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_3 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_4 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_5 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">createdAt (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Autoincremental format: timestamptz</div>
+<div class="param">updatedAt (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Autoincremental format: timestamptz</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Mailing_Contact"><code>Mailing_Contact</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+          </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Mailing_Contact_inner"><code>Mailing_Contact_inner</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">campaign_uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id Campanha format: int4</div>
+<div class="param">crm_people_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span> Id CRM Cliente Integração format: int4</div>
+<div class="param">campaigns_contact_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Nome do Contato </div>
+<div class="param">campaings_contact_sheet_text_1 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_2 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_3 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_4 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">campaings_contact_sheet_text_5 (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Opcional </div>
+<div class="param">phones (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">array[Integer]</a></span>  format: int4</div>
+    </div>  <!-- field-items -->
+  </div>
+  </body>
+</html>
