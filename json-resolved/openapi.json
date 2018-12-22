@@ -1,0 +1,1541 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "APIS Integration Dialer Catix4",
+    "description" : "Documentação APIS - Dialer Catix4\n",
+    "contact" : {
+      "email" : "desenvolvimento@optjuntos.com.br"
+    },
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "/"
+  } ],
+  "tags" : [ {
+    "name" : "campaigns",
+    "description" : "Gerenciamento de Campanhas"
+  }, {
+    "name" : "mailing-contacts",
+    "description" : "Gerenciamento Contatos Mailing em Massa"
+  }, {
+    "name" : "campaigns-contact",
+    "description" : "Gerenciamento dos Contatos Campanhas"
+  }, {
+    "name" : "campaigns-contact-calls",
+    "description" : "Gerenciamento dos Contatos Calls Campanhas"
+  } ],
+  "paths" : {
+    "/campaigns" : {
+      "put" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Update an existing campaigns",
+        "operationId" : "updateCampaign",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/Campaign"
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Add a new campaigns",
+        "operationId" : "addCampaign",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/Campaign"
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/get-all" : {
+      "get" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Finds All Campaigns",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/get-by-id/{campaign_uuid}" : {
+      "get" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Find campaigns by ID",
+        "description" : "Returns a single campaign",
+        "operationId" : "getCampaignId",
+        "parameters" : [ {
+          "name" : "campaign_uuid",
+          "in" : "path",
+          "description" : "ID of campaign to return",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Campaign_Result"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/start" : {
+      "get" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Start All Campaigns",
+        "description" : "Inicia a discagem de todas campanhas ativas",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/start/{campaign_uuid}" : {
+      "get" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Start campaigns by ID",
+        "description" : "Inicia a discagem de uma campanha específica",
+        "operationId" : "getStartCampaignId",
+        "parameters" : [ {
+          "name" : "campaign_uuid",
+          "in" : "path",
+          "description" : "ID of start campaign to return",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/stop" : {
+      "get" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Stop All Campaigns",
+        "description" : "Encerra a discagem de todas campanhas ativas",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/stop/{campaign_uuid}" : {
+      "get" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Stop campaigns by ID",
+        "description" : "Encerra a discagem de uma campanha específica",
+        "operationId" : "getStopCampaignId",
+        "parameters" : [ {
+          "name" : "campaign_uuid",
+          "in" : "path",
+          "description" : "ID of stop campaign to return",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/redial/start" : {
+      "get" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Redial Start All Campaigns",
+        "description" : "Inicia a rediscagem de todas campanhas ativas",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/redial/start/{campaign_uuid}" : {
+      "get" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Redial Start campaigns by ID",
+        "description" : "Inicia a rediscagem de uma campanha específica",
+        "operationId" : "getRedialStartCampaignId",
+        "parameters" : [ {
+          "name" : "campaign_uuid",
+          "in" : "path",
+          "description" : "ID of campaign to return",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/redial/stop" : {
+      "get" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Redial Stop All Campaigns",
+        "description" : "Encerra a rediscagem de todas campanhas ativas",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/redial/stop/{campaign_uuid}" : {
+      "get" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Redial stop campaigns by ID",
+        "description" : "Encerra a rediscagem de uma campanha específica",
+        "operationId" : "getRedialStopCampaignId",
+        "parameters" : [ {
+          "name" : "campaign_uuid",
+          "in" : "path",
+          "description" : "ID of reidla stop campaign to return",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/active" : {
+      "get" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Active All Campaigns",
+        "description" : "Ativa todas campanhas",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/active/{campaign_uuid}" : {
+      "get" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Active campaigns by ID",
+        "description" : "Ativa uma campanha específica",
+        "operationId" : "getActiveCampaignId",
+        "parameters" : [ {
+          "name" : "campaign_uuid",
+          "in" : "path",
+          "description" : "ID of active campaign to return",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/disable" : {
+      "get" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Disable All Campaigns",
+        "description" : "Desativa todas campanhas",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/disable/{campaign_uuid}" : {
+      "get" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Disable campaigns by ID",
+        "description" : "Desativa uma campanha específica",
+        "operationId" : "getDisableCampaignId",
+        "parameters" : [ {
+          "name" : "campaign_uuid",
+          "in" : "path",
+          "description" : "ID of campaign to return",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/delete" : {
+      "delete" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Deletes all campaigns",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns/delete/{campaign_uuid}" : {
+      "delete" : {
+        "tags" : [ "campaigns" ],
+        "summary" : "Deletes a campaigns unic",
+        "operationId" : "deleteCampaignId",
+        "parameters" : [ {
+          "name" : "campaign_uuid",
+          "in" : "path",
+          "description" : "Campaign id to delete",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns-contact/mailing-contacts/" : {
+      "put" : {
+        "tags" : [ "mailing-contacts" ],
+        "summary" : "Update an existing mailing-contacts",
+        "operationId" : "updateMailingContacts",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/Mailing_Contact"
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "mailing-contacts" ],
+        "summary" : "Add a new mailing-contacts",
+        "operationId" : "addMailingContacts",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/Mailing_Contact"
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns-contact/" : {
+      "put" : {
+        "tags" : [ "campaigns-contact" ],
+        "summary" : "Update an existing campaigns-contact",
+        "operationId" : "updateCampaignsContact",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/Campaigns_Contact"
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "campaigns-contact" ],
+        "summary" : "Add a new campaigns-contact",
+        "operationId" : "addCampaignsContact",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/Campaigns_Contact"
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns-contact/get-all" : {
+      "get" : {
+        "tags" : [ "campaigns-contact" ],
+        "summary" : "Finds All Campaigns Contact",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Campaigns_Contact_Result_All"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns-contact/get-by-id/{campaigns_contact_uuid}" : {
+      "get" : {
+        "tags" : [ "campaigns-contact" ],
+        "summary" : "Find campaigns-contact by ID",
+        "description" : "Returns a single campaign",
+        "operationId" : "getCampaignsContactId",
+        "parameters" : [ {
+          "name" : "campaigns_contact_uuid",
+          "in" : "path",
+          "description" : "ID of campaigns contact to return",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Campaigns_Contact_Result"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns-contact/delete/{campaigns_contact_uuid}" : {
+      "delete" : {
+        "tags" : [ "campaigns-contact" ],
+        "summary" : "Deletes a campaigns-contact unic",
+        "operationId" : "deleteCampaignsContactId",
+        "parameters" : [ {
+          "name" : "campaigns_contact_uuid",
+          "in" : "path",
+          "description" : "Campaign id to delete",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns-contact-calls/" : {
+      "put" : {
+        "tags" : [ "campaigns-contact-calls" ],
+        "summary" : "Update an existing campaigns-contact-calls",
+        "operationId" : "updateCampaignsContactCalls",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/Campaigns_Contact"
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign Contact Cals not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "campaigns-contact-calls" ],
+        "summary" : "Add a new campaigns-contact-calls",
+        "operationId" : "addCampaignsContactCalls",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/Campaigns_Contact_Calls"
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "404" : {
+            "description" : "Campaign Contact Calls not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns-contact-calls/get-all" : {
+      "get" : {
+        "tags" : [ "campaigns-contact-calls" ],
+        "summary" : "Finds All Campaigns Contact Calls",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Campaigns_Contact_Calls_Result_All"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns-contact-calls/get-by-id/{campaigns_contact_call_uuid}" : {
+      "get" : {
+        "tags" : [ "campaigns-contact-calls" ],
+        "summary" : "Find campaigns-contact-calls by ID",
+        "description" : "Returns a single campaign",
+        "operationId" : "getCampaignsCallsContactId",
+        "parameters" : [ {
+          "name" : "campaigns_contact_call_uuid",
+          "in" : "path",
+          "description" : "ID of campaigns contact call to return",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Campaigns_Contact_Calls_Result"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/campaigns-contact-calls/delete/{campaigns_contact_call_uuid}" : {
+      "delete" : {
+        "tags" : [ "campaigns-contact-calls" ],
+        "summary" : "Deletes a campaigns-contact-call unic",
+        "operationId" : "deleteCampaignsContactCallId",
+        "parameters" : [ {
+          "name" : "campaigns_contact_call_uuid",
+          "in" : "path",
+          "description" : "Campaign Contact Call id to delete",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "Campaign not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Campaign" : {
+        "required" : [ "call_back_uuid", "campaign_status", "dialer_strategy_uuid" ],
+        "type" : "object",
+        "properties" : {
+          "campaign_description" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "example" : "Campanha Dialer Test"
+          },
+          "dialer_strategy_uuid" : {
+            "type" : "integer",
+            "description" : "Estratégia de Discagem",
+            "format" : "int4",
+            "example" : 1
+          },
+          "call_back_uuid" : {
+            "type" : "integer",
+            "description" : "Módulo de Discagem",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_day_week_1" : {
+            "type" : "integer",
+            "description" : "Equivalente Domingo",
+            "format" : "int4",
+            "example" : 0
+          },
+          "campaign_day_week_2" : {
+            "type" : "integer",
+            "description" : "Equivalente Segunda-Feira",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_day_week_3" : {
+            "type" : "integer",
+            "description" : "Equivalente Terça-Feira",
+            "format" : "int4",
+            "example" : 2
+          },
+          "campaign_day_week_4" : {
+            "type" : "integer",
+            "description" : "Equivalente Quarta-Feira",
+            "format" : "int4",
+            "example" : 3
+          },
+          "campaign_day_week_5" : {
+            "type" : "integer",
+            "description" : "Equivalente Quinta-Feira",
+            "format" : "int4",
+            "example" : 4
+          },
+          "campaign_day_week_6" : {
+            "type" : "integer",
+            "description" : "Equivalente Sexta-Feira",
+            "format" : "int4",
+            "example" : 5
+          },
+          "campaign_day_week_7" : {
+            "type" : "integer",
+            "description" : "Equivalente Sábado",
+            "format" : "int4",
+            "example" : 6
+          },
+          "campaign_initial_date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "campaign_initial_time" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "example" : "08:00:00"
+          },
+          "campaign_final_date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "campaign_final_time" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "example" : "18:00:00"
+          },
+          "campaign_status" : {
+            "type" : "integer",
+            "description" : "0-Desativada / 1-Ativada",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_redial_max" : {
+            "type" : "integer",
+            "description" : "Número máximo de rediscagem de um contanto",
+            "format" : "int4",
+            "example" : 3
+          }
+        }
+      },
+      "Campaign_Result" : {
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "type" : "boolean"
+          },
+          "dados" : {
+            "$ref" : "#/components/schemas/Campaign_Result_dados"
+          }
+        }
+      },
+      "Mailing_Contact" : {
+        "required" : [ "campaign_uuid", "crm_people_id" ],
+        "type" : "array",
+        "example" : [ {
+          "campaign_uuid" : 1,
+          "crm_people_id" : 500,
+          "campaigns_contact_name" : "José",
+          "campaings_contact_sheet_text_1" : "Opção text 1",
+          "campaings_contact_sheet_text_2" : "Opção text 2",
+          "campaings_contact_sheet_text_3" : "Opção text 3",
+          "campaings_contact_sheet_text_4" : "Opção text 4",
+          "campaings_contact_sheet_text_5" : "Opção text 5",
+          "phones" : [ 11965450000, 1656645544 ]
+        }, {
+          "campaign_uuid" : 2,
+          "crm_people_id" : 501,
+          "campaigns_contact_name" : "Antonio",
+          "campaings_contact_sheet_text_1" : "Opção text 1",
+          "campaings_contact_sheet_text_2" : "Opção text 2",
+          "campaings_contact_sheet_text_3" : "Opção text 3",
+          "campaings_contact_sheet_text_4" : "Opção text 4",
+          "campaings_contact_sheet_text_5" : "Opção text 5",
+          "phones" : [ 1734450000, 17955544574 ]
+        } ],
+        "items" : {
+          "$ref" : "#/components/schemas/Mailing_Contact_inner"
+        }
+      },
+      "Campaigns_Contact" : {
+        "required" : [ "call_back_uuid", "campaign_status", "dialer_strategy_uuid" ],
+        "type" : "object",
+        "properties" : {
+          "campaign_uuid" : {
+            "type" : "integer",
+            "description" : "Id Campanha",
+            "format" : "int4",
+            "example" : 1
+          },
+          "crm_people_id" : {
+            "type" : "integer",
+            "description" : "Id CRM Cliente Integração",
+            "format" : "int4",
+            "example" : 503
+          },
+          "campaigns_contact_name" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Nome do Contato",
+            "example" : "Messias"
+          },
+          "campaings_contact_sheet_text_1" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_2" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_3" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_4" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_5" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          }
+        }
+      },
+      "Campaigns_Contact_Result" : {
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "type" : "boolean"
+          },
+          "dados" : {
+            "$ref" : "#/components/schemas/Campaigns_Contact_Result_dados"
+          }
+        }
+      },
+      "Campaigns_Contact_Result_All" : {
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "type" : "boolean"
+          },
+          "dados" : {
+            "$ref" : "#/components/schemas/Campaigns_Contact_Result_All_dados"
+          }
+        }
+      },
+      "Campaigns_Contact_Calls" : {
+        "required" : [ "campaign_uuid", "campaigns_contact_uuid", "crm_people_id" ],
+        "type" : "object",
+        "properties" : {
+          "campaigns_contact_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela campaigns_contacts",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela campaign",
+            "format" : "int4",
+            "example" : 1
+          },
+          "crm_people_id" : {
+            "type" : "integer",
+            "description" : "Id CRM Cliente Integração",
+            "format" : "int4",
+            "example" : 503
+          },
+          "campaigns_contact_call_phone" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Telefone Contato",
+            "example" : "1739554488"
+          }
+        }
+      },
+      "Campaigns_Contact_Calls_Result" : {
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "type" : "boolean"
+          },
+          "dados" : {
+            "$ref" : "#/components/schemas/Campaigns_Contact_Calls_Result_dados"
+          }
+        }
+      },
+      "Campaigns_Contact_Calls_Result_All" : {
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "type" : "boolean"
+          },
+          "dados" : {
+            "$ref" : "#/components/schemas/Campaigns_Contact_Calls_Result_All_dados"
+          }
+        }
+      },
+      "Campaign_Result_dados" : {
+        "type" : "object",
+        "properties" : {
+          "campaign_description" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "example" : "Campanha Dialer Test"
+          },
+          "dialer_strategy_uuid" : {
+            "type" : "integer",
+            "description" : "Estratégia de Discagem",
+            "format" : "int4",
+            "example" : 1
+          },
+          "call_back_uuid" : {
+            "type" : "integer",
+            "description" : "Módulo de Discagem",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_day_week_1" : {
+            "type" : "integer",
+            "description" : "Equivalente Domingo",
+            "format" : "int4",
+            "example" : 0
+          },
+          "campaign_day_week_2" : {
+            "type" : "integer",
+            "description" : "Equivalente Segunda-Feira",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_day_week_3" : {
+            "type" : "integer",
+            "description" : "Equivalente Terça-Feira",
+            "format" : "int4",
+            "example" : 2
+          },
+          "campaign_day_week_4" : {
+            "type" : "integer",
+            "description" : "Equivalente Quarta-Feira",
+            "format" : "int4",
+            "example" : 3
+          },
+          "campaign_day_week_5" : {
+            "type" : "integer",
+            "description" : "Equivalente Quinta-Feira",
+            "format" : "int4",
+            "example" : 4
+          },
+          "campaign_day_week_6" : {
+            "type" : "integer",
+            "description" : "Equivalente Sexta-Feira",
+            "format" : "int4",
+            "example" : 5
+          },
+          "campaign_day_week_7" : {
+            "type" : "integer",
+            "description" : "Equivalente Sábado",
+            "format" : "int4",
+            "example" : 6
+          },
+          "campaign_initial_date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "campaign_initial_time" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "example" : "08:00:00"
+          },
+          "campaign_final_date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "campaign_final_time" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "example" : "18:00:00"
+          },
+          "campaign_status" : {
+            "type" : "integer",
+            "description" : "0-Desativada / 1-Ativada",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_redial_max" : {
+            "type" : "integer",
+            "description" : "Número máximo de rediscagem de um contanto",
+            "format" : "int4",
+            "example" : 3
+          }
+        }
+      },
+      "Mailing_Contact_inner" : {
+        "type" : "object",
+        "properties" : {
+          "campaign_uuid" : {
+            "type" : "integer",
+            "description" : "Id Campanha",
+            "format" : "int4"
+          },
+          "crm_people_id" : {
+            "type" : "integer",
+            "description" : "Id CRM Cliente Integração",
+            "format" : "int4"
+          },
+          "campaigns_contact_name" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Nome do Contato"
+          },
+          "campaings_contact_sheet_text_1" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_2" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_3" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_4" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_5" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "phones" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "description" : "Telefones do Contato",
+              "format" : "int4"
+            }
+          }
+        }
+      },
+      "Campaigns_Contact_Result_dados" : {
+        "type" : "object",
+        "properties" : {
+          "campaigns_contact_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela campaigns_contacts",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela campaigns",
+            "format" : "int4",
+            "example" : 1
+          },
+          "crm_people_id" : {
+            "type" : "integer",
+            "description" : "Id CRM Cliente Integração",
+            "format" : "int4",
+            "example" : 500
+          },
+          "campaigns_contact_name" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Nome do Contato",
+            "example" : "José"
+          },
+          "campaings_contact_sheet_text_1" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_2" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_3" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_4" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_5" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz",
+            "example" : "2018-12-19T12:59:09.894Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz",
+            "example" : "2018-12-19T12:59:09.894Z"
+          }
+        }
+      },
+      "Campaigns_Contact_Result_All_dados" : {
+        "type" : "object",
+        "properties" : {
+          "campaigns_contact_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela campaigns_contacts",
+            "format" : "int4"
+          },
+          "campaign_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela campaigns",
+            "format" : "int4"
+          },
+          "crm_people_id" : {
+            "type" : "integer",
+            "description" : "Id CRM Cliente Integração",
+            "format" : "int4"
+          },
+          "campaigns_contact_name" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Nome do Contato"
+          },
+          "campaings_contact_sheet_text_1" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_2" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_3" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_4" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "campaings_contact_sheet_text_5" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Opcional"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz"
+          }
+        },
+        "example" : "[{\"campaigns_contact_uuid\":1,\"campaign_uuid\":1,\"crm_people_id\":500,\"campaigns_contact_name\":\"José\",\"createdAt\":\"2018-12-19T12:59:09.894Z\",\"updateAt\":\"2018-12-19T12:59:09.894Z\"},{\"campaigns_contact_uuid\":2,\"campaign_uuid\":1,\"crm_people_id\":501,\"campaigns_contact_name\":\"Antonio\",\"campaings_contact_sheet_text_1\":\"Opção text 1\",\"campaings_contact_sheet_text_2\":\"Opção text 2\",\"campaings_contact_sheet_text_3\":\"Opção text 3\",\"campaings_contact_sheet_text_4\":\"Opção text 4\",\"campaings_contact_sheet_text_5\":\"Opção text 5\",\"createdAt\":\"2018-12-19T12:59:09.894Z\",\"updateAt\":\"2018-12-19T12:59:09.894Z\"}]"
+      },
+      "Campaigns_Contact_Calls_Result_dados" : {
+        "type" : "object",
+        "properties" : {
+          "campaigns_contact_call_uuid" : {
+            "type" : "integer",
+            "description" : "Autoincremental",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaigns_contact_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela campaigns_contacts",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela campaigns",
+            "format" : "int4",
+            "example" : 1
+          },
+          "crm_people_id" : {
+            "type" : "integer",
+            "description" : "Id CRM Cliente Integração",
+            "format" : "int4",
+            "example" : 500
+          },
+          "campaigns_contact_name" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Telefone Contato",
+            "example" : "1739554488"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz",
+            "example" : "2018-12-19T12:59:09.894Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz",
+            "example" : "2018-12-19T12:59:09.894Z"
+          }
+        }
+      },
+      "Campaigns_Contact_Calls_Result_All_dados" : {
+        "type" : "object",
+        "properties" : {
+          "campaigns_contact_call_uuid" : {
+            "type" : "integer",
+            "description" : "Autoincremental",
+            "format" : "int4"
+          },
+          "campaigns_contact_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela campaigns_contacts",
+            "format" : "int4"
+          },
+          "campaign_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela campaigns",
+            "format" : "int4"
+          },
+          "crm_people_id" : {
+            "type" : "integer",
+            "description" : "Id CRM Cliente Integração",
+            "format" : "int4"
+          },
+          "campaigns_contact_call_phone" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Telefone do Contato"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz"
+          }
+        },
+        "example" : "[{\"campaigns_contact_call_uuid\":1,\"campaigns_contact_uuid\":1,\"campaign_uuid\":1,\"crm_people_id\":500,\"campaigns_contact_call_phone\":1739554488,\"createdAt\":\"2018-12-19T12:59:09.894Z\",\"updateAt\":\"2018-12-19T12:59:09.894Z\"},{\"campaigns_contact_call_uuid\":2,\"campaigns_contact_uuid\":2,\"campaign_uuid\":1,\"crm_people_id\":501,\"campaigns_contact_call_phone\":17959554489,\"createdAt\":\"2018-12-19T12:59:09.894Z\",\"updateAt\":\"2018-12-19T12:59:09.894Z\"}]"
+      }
+    },
+    "requestBodies" : {
+      "Campaign" : {
+        "description" : "Object Added Campaign",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Campaign"
+            }
+          }
+        },
+        "required" : true
+      },
+      "Campaign_Result" : {
+        "description" : "Object Result Campaign",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Campaign_Result"
+            }
+          }
+        },
+        "required" : true
+      },
+      "Mailing_Contact" : {
+        "description" : "Object Added Mailing_Contact",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Mailing_Contact"
+            }
+          }
+        },
+        "required" : true
+      },
+      "Campaigns_Contact" : {
+        "description" : "Object Added Campaigns_Contact",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Campaigns_Contact"
+            }
+          }
+        },
+        "required" : true
+      },
+      "Campaigns_Contact_Result_All" : {
+        "description" : "Object Result Campaigns_Contact_Result",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Campaigns_Contact_Result_All"
+            }
+          }
+        },
+        "required" : true
+      },
+      "Campaigns_Contact_Result" : {
+        "description" : "Object Result Campaigns_Contact_Result_Id",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Campaigns_Contact_Result"
+            }
+          }
+        },
+        "required" : true
+      },
+      "Campaigns_Contact_Calls" : {
+        "description" : "Object Added Campaigns_Contact_Calls",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Campaigns_Contact_Calls"
+            }
+          }
+        },
+        "required" : true
+      },
+      "Campaigns_Contact_Calls_Result_All" : {
+        "description" : "Object Result Campaigns_Contact_Calls_Result",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Campaigns_Contact_Calls_Result_All"
+            }
+          }
+        },
+        "required" : true
+      },
+      "Campaigns_Contact_Calls_Result" : {
+        "description" : "Object Result Campaigns_Contact_Calls_Result_Id",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Campaigns_Contact_Calls_Result"
+            }
+          }
+        },
+        "required" : true
+      }
+    }
+  }
+}
