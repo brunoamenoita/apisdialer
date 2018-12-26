@@ -27,7 +27,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class MailingContactsService {
 
-    protected basePath = '/';
+    protected basePath = 'http://catix4.optjuntos.com.br:8084/dialer';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
