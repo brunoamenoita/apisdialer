@@ -29,7 +29,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class CampaignsContactService {
 
-    protected basePath = 'http://catix4.optjuntos.com.br:8084/dialer';
+    protected basePath = '/';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
