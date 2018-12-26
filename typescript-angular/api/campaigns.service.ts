@@ -28,7 +28,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class CampaignsService {
 
-    protected basePath = 'https://virtserver.swaggerhub.com/catix4/dialer/1.0.0';
+    protected basePath = '/';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
