@@ -1189,6 +1189,18 @@
       "put" : {
         "tags" : [ "schedule" ],
         "summary" : "Update an existing schedule",
+        "parameters" : [ {
+          "name" : "campaign_uuid, crm_people_id, schedule_confirmation",
+          "in" : "path",
+          "description" : "Examples == campaign_uuid = 1, crm_people_id = 10, schedule_confirmation = valor 0 – contato não produtivo, disca p/ outros números do contrato // valor 1 – contato produtivo e eficaz, não disca mais p/ nenhum número do contrato // valor 2 – contato não produtivo e sem interesse, não disca mais p/ nenhum número do contrato",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
         "responses" : {
           "200" : {
             "description" : "successful operation"
