@@ -1356,7 +1356,7 @@
             "maxLength" : 255,
             "type" : "string",
             "description" : "Nome Gateway – originador chamada",
-            "example" : "true"
+            "example" : "5998"
           },
           "call_back_sleep_start" : {
             "type" : "integer",
