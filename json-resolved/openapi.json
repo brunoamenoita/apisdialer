@@ -12,6 +12,12 @@
     "url" : "/"
   } ],
   "tags" : [ {
+    "name" : "call-backs",
+    "description" : "Gerenciamento de CallBacks"
+  }, {
+    "name" : "dialer-strategy",
+    "description" : "Gerenciamento de Estratégia Discagem"
+  }, {
     "name" : "campaigns",
     "description" : "Gerenciamento de Campanhas"
   }, {
@@ -23,12 +29,6 @@
   }, {
     "name" : "campaigns-contact-calls",
     "description" : "Gerenciamento dos Contatos Calls Campanhas"
-  }, {
-    "name" : "call-backs",
-    "description" : "Gerenciamento de CallBacks"
-  }, {
-    "name" : "dialer-strategy",
-    "description" : "Gerenciamento de Estratégia Discagem"
   } ],
   "paths" : {
     "/campaigns" : {
