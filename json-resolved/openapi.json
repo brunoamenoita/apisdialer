@@ -26,6 +26,9 @@
   }, {
     "name" : "call-backs",
     "description" : "Gerenciamento de CallBacks"
+  }, {
+    "name" : "dialer-strategy",
+    "description" : "Gerenciamento de Estratégias Discagem"
   } ],
   "paths" : {
     "/campaigns" : {
@@ -823,7 +826,7 @@
         }
       }
     },
-    "/call-backs" : {
+    "/call-backs/" : {
       "put" : {
         "tags" : [ "call-backs" ],
         "summary" : "Update an existing call-backs",
@@ -1028,6 +1031,150 @@
           },
           "404" : {
             "description" : "CallBack not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/dialer-strategy/" : {
+      "put" : {
+        "tags" : [ "dialer-strategy" ],
+        "summary" : "Update an existing dialer-strategy",
+        "operationId" : "updateDialerStrategy",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/DialerStrategy"
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "DialerStrategy not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "dialer-strategy" ],
+        "summary" : "Add a new dialer-strategy",
+        "operationId" : "addDialerStrategy",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/DialerStrategy"
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "404" : {
+            "description" : "DialerStrategy not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/dialer-strategy/get-all" : {
+      "get" : {
+        "tags" : [ "dialer-strategy" ],
+        "summary" : "Finds All DialerStrategys",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/DialerStrategy_Result_All"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "DialerStrategy not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/dialer-strategy/get-by-id/{dialer_strategy_uuid}" : {
+      "get" : {
+        "tags" : [ "dialer-strategy" ],
+        "summary" : "Find dialer-strategy by ID",
+        "description" : "Returns a single campaign",
+        "operationId" : "getDialerStrategyId",
+        "parameters" : [ {
+          "name" : "dialer_strategy_uuid",
+          "in" : "path",
+          "description" : "ID of campaign to return",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/DialerStrategy_Result"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "DialerStrategy not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/dialer-strategy/delete/{dialer_strategy_uuid}" : {
+      "delete" : {
+        "tags" : [ "dialer-strategy" ],
+        "summary" : "Deletes a dialer-strategy unic",
+        "operationId" : "deleteDialerStrategyId",
+        "parameters" : [ {
+          "name" : "dialer_strategy_uuid",
+          "in" : "path",
+          "description" : "DialerStrategy id to delete",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "DialerStrategy not found"
           },
           "405" : {
             "description" : "Method Not Allowed"
@@ -1439,6 +1586,57 @@
           },
           "dados" : {
             "$ref" : "#/components/schemas/CallBack_Result_All_dados"
+          }
+        }
+      },
+      "DialerStrategy" : {
+        "type" : "object",
+        "properties" : {
+          "dialer_strategy_description" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Nome de Estratégia",
+            "example" : "Estratégia Test"
+          },
+          "dialer_strategy_sleep_sched_initial" : {
+            "type" : "integer",
+            "description" : "Tempo start chamada",
+            "format" : "int4",
+            "example" : 8
+          },
+          "dialer_strategy_broadcast_concurrent_limit" : {
+            "type" : "integer",
+            "description" : "Número chamada simultaneas",
+            "format" : "int4",
+            "example" : 10
+          },
+          "dialer_strategy_broadcast_timeout" : {
+            "type" : "integer",
+            "description" : "Tempo entre ciclo p/ novas chamadas",
+            "format" : "int4",
+            "example" : 60
+          }
+        }
+      },
+      "DialerStrategy_Result" : {
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "type" : "boolean"
+          },
+          "dados" : {
+            "$ref" : "#/components/schemas/DialerStrategy_Result_dados"
+          }
+        }
+      },
+      "DialerStrategy_Result_All" : {
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "type" : "boolean"
+          },
+          "dados" : {
+            "$ref" : "#/components/schemas/DialerStrategy_Result_All_dados"
           }
         }
       },
@@ -2147,6 +2345,94 @@
           }
         },
         "example" : "[{\"callback_uuid\":1,\"call_back_name\":\"Dialer Test\",\"call_back_description\":\"Descrição CallBack\",\"call_back_amd\":\"false\",\"call_back_amd_attemps\":3,\"call_back_amd_return_time\":35,\"recording_uuid\":1,\"call_back_record_sessions\":\"true\",\"call_back_gateway\":5998,\"call_back_sleep_start\":8,\"call_back_busy\":3,\"call_back_busy_return_time\":35,\"call_back_no_answer\":3,\"call_back_no_answer_return_time\":35,\"call_back_failed\":3,\"call_back_failed_return_time\":35,\"call_back_destiny\":\"callcenter\",\"call_back_local_destination\":\"fila_discador\",\"call_back_progress\":\"no\",\"createdAt\":\"2018-12-19T12:59:09.894Z\",\"updateAt\":\"2018-12-19T12:59:09.894Z\"},{\"callback_uuid\":2,\"call_back_name\":\"Dialer Incoming\",\"call_back_description\":\"Descrição CallBack\",\"call_back_amd\":\"true\",\"call_back_amd_attemps\":3,\"call_back_amd_return_time\":35,\"recording_uuid\":2,\"call_back_record_sessions\":true,\"call_back_gateway\":2,\"call_back_sleep_start\":8,\"call_back_busy\":2,\"call_back_busy_return_time\":45,\"call_back_no_answer\":2,\"call_back_no_answer_return_time\":45,\"call_back_failed\":2,\"call_back_failed_return_time\":45,\"call_back_destiny\":\"transfer\",\"call_back_local_destination\":\"1002 XML opt-external\",\"call_back_progress\":\"no\",\"createdAt\":\"2018-12-19T12:59:09.894Z\",\"updateAt\":\"2018-12-19T12:59:09.894Z\"}]"
+      },
+      "DialerStrategy_Result_dados" : {
+        "type" : "object",
+        "properties" : {
+          "dialer_strategy_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela dialer-strategy",
+            "format" : "int4",
+            "example" : 1
+          },
+          "dialer_strategy_description" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Descrição Strategy",
+            "example" : "Description Strategy"
+          },
+          "dialer_strategy_sleep_sched_initial" : {
+            "type" : "integer",
+            "description" : "Tempo start chamada",
+            "format" : "int4",
+            "example" : 8
+          },
+          "dialer_strategy_broadcast_concurrent_limit" : {
+            "type" : "integer",
+            "description" : "Número chamada simultaneas",
+            "format" : "int4",
+            "example" : 10
+          },
+          "dialer_strategy_broadcast_timeout" : {
+            "type" : "integer",
+            "description" : "Tempo entre ciclo p/ novas chamadas",
+            "format" : "int4",
+            "example" : 60
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz",
+            "example" : "2018-12-14T11:58:57.272Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz",
+            "example" : "2018-12-14T11:58:57.272Z"
+          }
+        }
+      },
+      "DialerStrategy_Result_All_dados" : {
+        "type" : "object",
+        "properties" : {
+          "dialer_strategy_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela dialer-strategy",
+            "format" : "int4"
+          },
+          "dialer_strategy_description" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Descrição Strategy"
+          },
+          "dialer_strategy_sleep_sched_initial" : {
+            "type" : "integer",
+            "description" : "Tempo start chamada",
+            "format" : "int4"
+          },
+          "dialer_strategy_broadcast_concurrent_limit" : {
+            "type" : "integer",
+            "description" : "Número chamada simultaneas",
+            "format" : "int4"
+          },
+          "dialer_strategy_broadcast_timeout" : {
+            "type" : "integer",
+            "description" : "Tempo entre ciclo p/ novas chamadas",
+            "format" : "int4"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz"
+          }
+        },
+        "example" : "[{\"dialer_strategy_uuid\":1,\"dialer_strategy_description\":\"Descrição Strategy 1\",\"dialer_strategy_sleep_sched_initial\":8,\"dialer_strategy_broadcast_concurrent_limit\":5,\"dialer_strategy_broadcast_timeout\":45,\"createdAt\":\"2018-12-18T12:59:09.894Z\",\"updateAt\":\"2018-12-18T12:59:09.894Z\"},{\"dialer_strategy_uuid\":2,\"dialer_strategy_description\":\"Descrição Strategy 2\",\"dialer_strategy_sleep_sched_initial\":8,\"dialer_strategy_broadcast_concurrent_limit\":10,\"dialer_strategy_broadcast_timeout\":60,\"createdAt\":\"2018-12-19T12:59:09.894Z\",\"updateAt\":\"2018-12-19T12:59:09.894Z\"}]"
       }
     },
     "requestBodies" : {
@@ -2288,6 +2574,39 @@
           "application/json" : {
             "schema" : {
               "$ref" : "#/components/schemas/CallBack_Result"
+            }
+          }
+        },
+        "required" : true
+      },
+      "DialerStrategy" : {
+        "description" : "Object Added DialerStrategy",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/DialerStrategy"
+            }
+          }
+        },
+        "required" : true
+      },
+      "DialerStrategy_Result_All" : {
+        "description" : "Object Result DialerStrategy_Result_All",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/DialerStrategy_Result_All"
+            }
+          }
+        },
+        "required" : true
+      },
+      "DialerStrategy_Result" : {
+        "description" : "Object Result DialerStrategy_Result_Id",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/DialerStrategy_Result"
             }
           }
         },
