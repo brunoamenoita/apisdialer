@@ -29,6 +29,9 @@
   }, {
     "name" : "campaigns-contact-calls",
     "description" : "Gerenciamento dos Contatos Calls Campanhas"
+  }, {
+    "name" : "schedule",
+    "description" : "Gerenciamento Schedule"
   } ],
   "paths" : {
     "/campaigns" : {
@@ -1178,6 +1181,17 @@
           },
           "405" : {
             "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/schedule/confirmation/Id_campaign_uuid/Id_crm_people_id/Id_schedule_confirmation" : {
+      "put" : {
+        "tags" : [ "schedule" ],
+        "summary" : "Update an existing schedule",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
           }
         }
       }
