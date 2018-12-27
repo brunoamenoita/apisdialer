@@ -1279,96 +1279,114 @@
         }
       },
       "CallBack" : {
+        "required" : [ "recording_uuid" ],
         "type" : "object",
         "properties" : {
-          "campaign_description" : {
+          "call_back_name" : {
             "maxLength" : 255,
             "type" : "string",
-            "example" : "Campanha Dialer Test"
+            "example" : "Nome do Callback"
           },
-          "dialer_strategy_uuid" : {
-            "type" : "integer",
-            "description" : "Estratégia de Discagem",
-            "format" : "int4",
-            "example" : 1
+          "call_back_description" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "example" : "Descrição do Callback"
           },
-          "call_back_uuid" : {
-            "type" : "integer",
-            "description" : "Módulo de Discagem",
-            "format" : "int4",
-            "example" : 1
+          "call_back_amd" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "AMD – Ativo/Inativo",
+            "example" : "true"
           },
-          "campaign_day_week_1" : {
+          "call_back_amd_attemps" : {
             "type" : "integer",
-            "description" : "Equivalente Domingo",
-            "format" : "int4",
-            "example" : 0
-          },
-          "campaign_day_week_2" : {
-            "type" : "integer",
-            "description" : "Equivalente Segunda-Feira",
-            "format" : "int4",
-            "example" : 1
-          },
-          "campaign_day_week_3" : {
-            "type" : "integer",
-            "description" : "Equivalente Terça-Feira",
-            "format" : "int4",
-            "example" : 2
-          },
-          "campaign_day_week_4" : {
-            "type" : "integer",
-            "description" : "Equivalente Quarta-Feira",
+            "description" : "Número de tentativas, caso AMD = Atendimento Máquina",
             "format" : "int4",
             "example" : 3
           },
-          "campaign_day_week_5" : {
+          "call_back_amd_return_time" : {
             "type" : "integer",
-            "description" : "Equivalente Quinta-Feira",
+            "description" : "Tempo de Retorno Chamada, caso AMD",
             "format" : "int4",
-            "example" : 4
+            "example" : 35
           },
-          "campaign_day_week_6" : {
+          "recording_uuid" : {
             "type" : "integer",
-            "description" : "Equivalente Sexta-Feira",
-            "format" : "int4",
-            "example" : 5
-          },
-          "campaign_day_week_7" : {
-            "type" : "integer",
-            "description" : "Equivalente Sábado",
-            "format" : "int4",
-            "example" : 6
-          },
-          "campaign_initial_date" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "campaign_initial_time" : {
-            "maxLength" : 255,
-            "type" : "string",
-            "example" : "08:00:00"
-          },
-          "campaign_final_date" : {
-            "type" : "string",
-            "format" : "date-time"
-          },
-          "campaign_final_time" : {
-            "maxLength" : 255,
-            "type" : "string",
-            "example" : "18:00:00"
-          },
-          "campaign_status" : {
-            "type" : "integer",
-            "description" : "0-Desativada / 1-Ativada",
+            "description" : "Valor Padrão - 1",
             "format" : "int4",
             "example" : 1
           },
-          "campaign_redial_max" : {
+          "call_back_record_sessions" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Gravação Callback – Ativo/Inativo",
+            "example" : "true"
+          },
+          "call_back_gateway" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Nome Gateway – originador chamada",
+            "example" : "true"
+          },
+          "call_back_sleep_start" : {
             "type" : "integer",
-            "description" : "Número máximo de rediscagem de um contanto",
+            "description" : "Valor padrão - 8 segundos",
+            "format" : "int4",
+            "example" : 8
+          },
+          "call_back_busy" : {
+            "type" : "integer",
+            "description" : "Número de tentativas, caso Ocupado",
             "format" : "int4",
             "example" : 3
+          },
+          "call_back_busy_return_time" : {
+            "type" : "integer",
+            "description" : "Tempo de Retorno Chamada, caso Ocupado",
+            "format" : "int4",
+            "example" : 35
+          },
+          "call_back_no_answer" : {
+            "type" : "integer",
+            "description" : "Número de tentativas, caso Não Atende",
+            "format" : "int4",
+            "example" : 3
+          },
+          "call_back_no_answer_return_time" : {
+            "type" : "integer",
+            "description" : "Tempo de Retorno Chamada, caso Não Atende",
+            "format" : "int4",
+            "example" : 35
+          },
+          "call_back_failed" : {
+            "type" : "integer",
+            "description" : "Número de tentativas, caso Falhas de Chamadas",
+            "format" : "int4",
+            "example" : 3
+          },
+          "call_back_failed_return_time" : {
+            "type" : "integer",
+            "description" : "Tempo de Retorno Chamada, caso Falhas de Chamadas",
+            "format" : "int4",
+            "example" : 35
+          },
+          "call_back_destiny" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Aplicação destino",
+            "example" : "callcenter"
+          },
+          "call_back_local_destination" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Destino",
+            "example" : "fila_discador"
+          },
+          "call_back_progress" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Valor padrão - no",
+            "example" : "false"
           }
         }
       },
