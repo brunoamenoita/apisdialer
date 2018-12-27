@@ -1233,6 +1233,75 @@
           }
         }
       }
+    },
+    "/call-center-agents/available/{call_center_agent_uuid}" : {
+      "put" : {
+        "tags" : [ "call-center-agents" ],
+        "summary" : "Callcenter Agent Available",
+        "parameters" : [ {
+          "name" : "call_center_agent_uuid",
+          "in" : "path",
+          "description" : "Deixa o agent disponivel p/ receber chamadas da fila.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/call-center-agents/onbreak/{call_center_agent_uuid}" : {
+      "put" : {
+        "tags" : [ "call-center-agents" ],
+        "summary" : "Callcenter Agent OnBreak",
+        "parameters" : [ {
+          "name" : "call_center_agent_uuid",
+          "in" : "path",
+          "description" : "Coloca o agent em pausa p/ não receber chamadas da fila.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/call-center-agents/loggedout/{call_center_agent_uuid}" : {
+      "put" : {
+        "tags" : [ "call-center-agents" ],
+        "summary" : "Callcenter Agent Logged Out",
+        "parameters" : [ {
+          "name" : "call_center_agent_uuid",
+          "in" : "path",
+          "description" : "Desloga o agent da fila.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        }
+      }
     }
   },
   "components" : {
