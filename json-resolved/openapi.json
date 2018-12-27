@@ -1811,7 +1811,7 @@
             "maxLength" : 255,
             "type" : "string",
             "description" : "AMD – Ativo/Inativo",
-            "example" : "true"
+            "example" : "false"
           },
           "call_back_amd_attemps" : {
             "type" : "integer",
@@ -1841,7 +1841,7 @@
             "maxLength" : 255,
             "type" : "string",
             "description" : "Nome Gateway – originador chamada",
-            "example" : "true"
+            "example" : "5998"
           },
           "call_back_sleep_start" : {
             "type" : "integer",
@@ -2026,7 +2026,7 @@
             "format" : "timestamptz"
           }
         },
-        "example" : "[{\"callback_uuid\":1,\"call_back_name\":\"Dialer Test\",\"call_back_description\":\"Descrição CallBack\",\"call_back_amd\":\"true\",\"call_back_amd_attemps\":3,\"call_back_amd_return_time\":35,\"recording_uuid\":1,\"call_back_record_sessions\":\"true\",\"call_back_gateway\":5998,\"call_back_sleep_start\":8,\"call_back_busy\":3,\"call_back_busy_return_time\":35,\"call_back_no_answer\":3,\"call_back_no_answer_return_time\":35,\"call_back_failed\":3,\"call_back_failed_return_time\":35,\"call_back_destiny\":\"callcenter\",\"call_back_local_destination\":\"fila_discador\",\"call_back_progress\":\"no\",\"createdAt\":\"2018-12-19T12:59:09.894Z\",\"updateAt\":\"2018-12-19T12:59:09.894Z\"},{\"callback_uuid\":2,\"call_back_name\":\"Dialer Incoming\",\"call_back_description\":\"Descrição CallBack\",\"call_back_amd\":true,\"call_back_amd_attemps\":3,\"call_back_amd_return_time\":35,\"recording_uuid\":2,\"call_back_record_sessions\":true,\"call_back_gateway\":2,\"call_back_sleep_start\":8,\"call_back_busy\":2,\"call_back_busy_return_time\":45,\"call_back_no_answer\":2,\"call_back_no_answer_return_time\":45,\"call_back_failed\":2,\"call_back_failed_return_time\":45,\"call_back_destiny\":\"transfer\",\"call_back_local_destination\":\"1002 XML opt-external\",\"call_back_progress\":\"no\",\"createdAt\":\"2018-12-19T12:59:09.894Z\",\"updateAt\":\"2018-12-19T12:59:09.894Z\"}]"
+        "example" : "[{\"callback_uuid\":1,\"call_back_name\":\"Dialer Test\",\"call_back_description\":\"Descrição CallBack\",\"call_back_amd\":\"false\",\"call_back_amd_attemps\":3,\"call_back_amd_return_time\":35,\"recording_uuid\":1,\"call_back_record_sessions\":\"true\",\"call_back_gateway\":5998,\"call_back_sleep_start\":8,\"call_back_busy\":3,\"call_back_busy_return_time\":35,\"call_back_no_answer\":3,\"call_back_no_answer_return_time\":35,\"call_back_failed\":3,\"call_back_failed_return_time\":35,\"call_back_destiny\":\"callcenter\",\"call_back_local_destination\":\"fila_discador\",\"call_back_progress\":\"no\",\"createdAt\":\"2018-12-19T12:59:09.894Z\",\"updateAt\":\"2018-12-19T12:59:09.894Z\"},{\"callback_uuid\":2,\"call_back_name\":\"Dialer Incoming\",\"call_back_description\":\"Descrição CallBack\",\"call_back_amd\":\"true\",\"call_back_amd_attemps\":3,\"call_back_amd_return_time\":35,\"recording_uuid\":2,\"call_back_record_sessions\":true,\"call_back_gateway\":2,\"call_back_sleep_start\":8,\"call_back_busy\":2,\"call_back_busy_return_time\":45,\"call_back_no_answer\":2,\"call_back_no_answer_return_time\":45,\"call_back_failed\":2,\"call_back_failed_return_time\":45,\"call_back_destiny\":\"transfer\",\"call_back_local_destination\":\"1002 XML opt-external\",\"call_back_progress\":\"no\",\"createdAt\":\"2018-12-19T12:59:09.894Z\",\"updateAt\":\"2018-12-19T12:59:09.894Z\"}]"
       }
     },
     "requestBodies" : {
