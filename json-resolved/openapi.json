@@ -23,6 +23,9 @@
   }, {
     "name" : "campaigns-contact-calls",
     "description" : "Gerenciamento dos Contatos Calls Campanhas"
+  }, {
+    "name" : "call-backs",
+    "description" : "Gerenciamento de CallBacks"
   } ],
   "paths" : {
     "/campaigns" : {
@@ -812,6 +815,208 @@
           }
         }
       }
+    },
+    "/call-backs" : {
+      "put" : {
+        "tags" : [ "call-backs" ],
+        "summary" : "Update an existing call-backs",
+        "operationId" : "updateCallBack",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/CallBack"
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "CallBack not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "call-backs" ],
+        "summary" : "Add a new call-backs",
+        "operationId" : "addCallBack",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/CallBack"
+        },
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "404" : {
+            "description" : "CallBack not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/call-backs/get-all" : {
+      "get" : {
+        "tags" : [ "call-backs" ],
+        "summary" : "Finds All CallBacks",
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "404" : {
+            "description" : "CallBack not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/call-backs/get-by-id/{call_back_uuid}" : {
+      "get" : {
+        "tags" : [ "call-backs" ],
+        "summary" : "Find call-backs by ID",
+        "description" : "Returns a single campaign",
+        "operationId" : "getCallBackId",
+        "parameters" : [ {
+          "name" : "call_back_uuid",
+          "in" : "path",
+          "description" : "ID of campaign to return",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CallBack_Result"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "CallBack not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/call-backs/delete/{call_back_uuid}" : {
+      "delete" : {
+        "tags" : [ "call-backs" ],
+        "summary" : "Deletes a call-backs unic",
+        "operationId" : "deleteCallBackId",
+        "parameters" : [ {
+          "name" : "call_back_uuid",
+          "in" : "path",
+          "description" : "CallBack id to delete",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "CallBack not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/call-backs/amd/active/{call_back_uuid}" : {
+      "put" : {
+        "tags" : [ "call-backs" ],
+        "summary" : "Active AMD call-back by ID",
+        "description" : "Ativa detecção de máquina",
+        "operationId" : "putActiveCallBackId",
+        "parameters" : [ {
+          "name" : "call_back_uuid",
+          "in" : "path",
+          "description" : "ID of active campaign to return",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "CallBack not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
+    },
+    "/call-backs/amd/inactive/{call_back_uuid}" : {
+      "put" : {
+        "tags" : [ "call-backs" ],
+        "summary" : "Disable AMD call-backs by ID",
+        "description" : "Desativa detecção de máquina",
+        "operationId" : "putInactiveCallBackId",
+        "parameters" : [ {
+          "name" : "call_back_uuid",
+          "in" : "path",
+          "description" : "ID of campaign to return",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
+          },
+          "404" : {
+            "description" : "CallBack not found"
+          },
+          "405" : {
+            "description" : "Method Not Allowed"
+          }
+        }
+      }
     }
   },
   "components" : {
@@ -1070,6 +1275,122 @@
           },
           "dados" : {
             "$ref" : "#/components/schemas/Campaigns_Contact_Calls_Result_All_dados"
+          }
+        }
+      },
+      "CallBack" : {
+        "type" : "object",
+        "properties" : {
+          "campaign_description" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "example" : "Campanha Dialer Test"
+          },
+          "dialer_strategy_uuid" : {
+            "type" : "integer",
+            "description" : "Estratégia de Discagem",
+            "format" : "int4",
+            "example" : 1
+          },
+          "call_back_uuid" : {
+            "type" : "integer",
+            "description" : "Módulo de Discagem",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_day_week_1" : {
+            "type" : "integer",
+            "description" : "Equivalente Domingo",
+            "format" : "int4",
+            "example" : 0
+          },
+          "campaign_day_week_2" : {
+            "type" : "integer",
+            "description" : "Equivalente Segunda-Feira",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_day_week_3" : {
+            "type" : "integer",
+            "description" : "Equivalente Terça-Feira",
+            "format" : "int4",
+            "example" : 2
+          },
+          "campaign_day_week_4" : {
+            "type" : "integer",
+            "description" : "Equivalente Quarta-Feira",
+            "format" : "int4",
+            "example" : 3
+          },
+          "campaign_day_week_5" : {
+            "type" : "integer",
+            "description" : "Equivalente Quinta-Feira",
+            "format" : "int4",
+            "example" : 4
+          },
+          "campaign_day_week_6" : {
+            "type" : "integer",
+            "description" : "Equivalente Sexta-Feira",
+            "format" : "int4",
+            "example" : 5
+          },
+          "campaign_day_week_7" : {
+            "type" : "integer",
+            "description" : "Equivalente Sábado",
+            "format" : "int4",
+            "example" : 6
+          },
+          "campaign_initial_date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "campaign_initial_time" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "example" : "08:00:00"
+          },
+          "campaign_final_date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "campaign_final_time" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "example" : "18:00:00"
+          },
+          "campaign_status" : {
+            "type" : "integer",
+            "description" : "0-Desativada / 1-Ativada",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_redial_max" : {
+            "type" : "integer",
+            "description" : "Número máximo de rediscagem de um contanto",
+            "format" : "int4",
+            "example" : 3
+          }
+        }
+      },
+      "CallBack_Result" : {
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "type" : "boolean"
+          },
+          "dados" : {
+            "$ref" : "#/components/schemas/Campaign_Result_dados"
+          }
+        }
+      },
+      "CallBack_Result_All" : {
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "type" : "boolean"
+          },
+          "dados" : {
+            "$ref" : "#/components/schemas/Campaigns_Contact_Result_All_dados"
           }
         }
       },
@@ -1531,6 +1852,39 @@
           "application/json" : {
             "schema" : {
               "$ref" : "#/components/schemas/Campaigns_Contact_Calls_Result"
+            }
+          }
+        },
+        "required" : true
+      },
+      "CallBack" : {
+        "description" : "Object Added CallBack",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/CallBack"
+            }
+          }
+        },
+        "required" : true
+      },
+      "CallBack_Result_All" : {
+        "description" : "Object Result CallBack_Result_All",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/CallBack_Result_All"
+            }
+          }
+        },
+        "required" : true
+      },
+      "CallBack_Result" : {
+        "description" : "Object Result CallBack_Result_Id",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/CallBack_Result"
             }
           }
         },
