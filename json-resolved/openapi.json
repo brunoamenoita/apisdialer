@@ -1185,7 +1185,7 @@
         }
       }
     },
-    "/schedule/confirmation/id_campaign_uuid/id_crm_people_id/schedule_confirmation" : {
+    "/schedule/confirmation/campaign_uuid/crm_people_id/schedule_confirmation" : {
       "put" : {
         "tags" : [ "schedule" ],
         "summary" : "Schedule Type Confirmation",
@@ -1193,6 +1193,29 @@
           "name" : "campaign_uuid, crm_people_id, schedule_confirmation",
           "in" : "path",
           "description" : "Examples == campaign_uuid = 1, crm_people_id = 10, schedule_confirmation = 0 – contato não produtivo, disca p/ outros números do contrato /// schedule_confirmation = 1 – contato produtivo e eficaz, não disca mais p/ nenhum número do contrato /// schedule_confirmation = 2 – contato não produtivo e sem interesse, não disca mais p/ nenhum número do contrato",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/schedule/phone/inactive/campaign_uuid/crm_people_id/schedule_phone" : {
+      "put" : {
+        "tags" : [ "schedule" ],
+        "summary" : "Schedule Inactive Phone",
+        "parameters" : [ {
+          "name" : "campaign_uuid, crm_people_id, schedule_phone",
+          "in" : "path",
+          "description" : "Example == campaign_uuid = 1, crm_people_id = 10, schedule_phone = 1735225444 /// essa rota desativa um número telefone do contrato, para não ser mais discado.",
           "required" : true,
           "style" : "simple",
           "explode" : false,
