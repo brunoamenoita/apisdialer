@@ -1398,7 +1398,7 @@
             "maxLength" : 255,
             "type" : "string",
             "description" : "Valor padrão - no",
-            "example" : "false"
+            "example" : "no"
           }
         }
       },
@@ -1895,7 +1895,7 @@
             "maxLength" : 255,
             "type" : "string",
             "description" : "Valor padrão - no",
-            "example" : "false"
+            "example" : "no"
           }
         }
       }
