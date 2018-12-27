@@ -1137,6 +1137,17 @@
           }
         }
       },
+      "Campaign_Result_All" : {
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "type" : "boolean"
+          },
+          "dados" : {
+            "$ref" : "#/components/schemas/Campaign_Result_All_dados"
+          }
+        }
+      },
       "Mailing_Contact" : {
         "required" : [ "campaign_uuid", "crm_people_id" ],
         "type" : "array",
@@ -1517,6 +1528,90 @@
             "example" : 3
           }
         }
+      },
+      "Campaign_Result_All_dados" : {
+        "type" : "object",
+        "properties" : {
+          "campaign_uuid" : {
+            "type" : "integer",
+            "format" : "int4"
+          },
+          "campaign_description" : {
+            "maxLength" : 255,
+            "type" : "string"
+          },
+          "dialer_strategy_uuid" : {
+            "type" : "integer",
+            "format" : "int4"
+          },
+          "call_back_uuid" : {
+            "type" : "integer",
+            "format" : "int4"
+          },
+          "campaign_day_week_1" : {
+            "type" : "integer",
+            "format" : "int4"
+          },
+          "campaign_day_week_2" : {
+            "type" : "integer",
+            "format" : "int4"
+          },
+          "campaign_day_week_3" : {
+            "type" : "integer",
+            "format" : "int4"
+          },
+          "campaign_day_week_4" : {
+            "type" : "integer",
+            "format" : "int4"
+          },
+          "campaign_day_week_5" : {
+            "type" : "integer",
+            "format" : "int4"
+          },
+          "campaign_day_week_6" : {
+            "type" : "integer",
+            "format" : "int4"
+          },
+          "campaign_day_week_7" : {
+            "type" : "integer",
+            "format" : "int4"
+          },
+          "campaign_initial_date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "campaign_initial_time" : {
+            "maxLength" : 255,
+            "type" : "string"
+          },
+          "campaign_final_date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "campaign_final_time" : {
+            "maxLength" : 255,
+            "type" : "string"
+          },
+          "campaign_status" : {
+            "type" : "integer",
+            "format" : "int4"
+          },
+          "campaign_redial_max" : {
+            "type" : "integer",
+            "format" : "int4"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz"
+          }
+        },
+        "example" : "[{\"campaign_uuid\":1,\"campaign_description\":\"Campaign Test 1\",\"dialer_strategy_uuid\":1,\"call_back_uuid\":1,\"campaign_day_week_1\":0,\"campaign_day_week_2\":1,\"campaign_day_week_3\":2,\"campaign_day_week_4\":3,\"campaign_day_week_5\":4,\"campaign_day_week_6\":5,\"campaign_day_week_7\":6,\"campaign_initial_date\":\"2018-12-01\",\"campaign_initial_time\":\"08:00:00\",\"campaign_final_date\":\"2018-12-20\",\"campaign_final_time\":\"18:00:00\",\"campaign_status\":1,\"campaign_redial_max\":3,\"createdAt\":\"2018-12-14T12:00:16.716Z\",\"updateAt\":\"2018-12-14T12:00:16.716Z\"},{\"campaign_uuid\":2,\"campaign_description\":\"Campaign Test 2\",\"dialer_strategy_uuid\":1,\"call_back_uuid\":1,\"campaign_day_week_2\":1,\"campaign_day_week_3\":2,\"campaign_day_week_4\":3,\"campaign_day_week_5\":4,\"campaign_day_week_6\":5,\"campaign_initial_date\":\"2018-12-01\",\"campaign_initial_time\":\"08:00:00\",\"campaign_final_date\":\"2018-12-20\",\"campaign_final_time\":\"18:00:00\",\"campaign_status\":0,\"campaign_redial_max\":2,\"createdAt\":\"2018-12-14T12:00:16.716Z\",\"updateAt\":\"2018-12-14T12:00:16.716Z\"}]"
       },
       "Mailing_Contact_inner" : {
         "type" : "object",
@@ -2047,6 +2142,17 @@
           "application/json" : {
             "schema" : {
               "$ref" : "#/components/schemas/Campaign_Result"
+            }
+          }
+        },
+        "required" : true
+      },
+      "Campaign_Result_All" : {
+        "description" : "Object Result All Campaign",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Campaign_Result_All"
             }
           }
         },
