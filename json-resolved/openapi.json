@@ -865,7 +865,17 @@
         "summary" : "Finds All CallBacks",
         "responses" : {
           "200" : {
-            "description" : "successful operation"
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CallBack_Result_All"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid ID supplied"
           },
           "404" : {
             "description" : "CallBack not found"
