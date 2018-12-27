@@ -32,6 +32,9 @@
   }, {
     "name" : "schedule",
     "description" : "Gerenciamento Schedule"
+  }, {
+    "name" : "call-center-agents",
+    "description" : "Gerenciamento CallCenter Agents"
   } ],
   "paths" : {
     "/campaigns" : {
