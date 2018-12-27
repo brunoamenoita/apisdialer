@@ -77,7 +77,14 @@
         "summary" : "Finds All Campaigns",
         "responses" : {
           "200" : {
-            "description" : "successful operation"
+            "description" : "successful operation",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Campaign_Result_All"
+                }
+              }
+            }
           },
           "404" : {
             "description" : "Campaign not found"
