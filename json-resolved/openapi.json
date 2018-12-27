@@ -1445,6 +1445,12 @@
       "Campaign_Result_dados" : {
         "type" : "object",
         "properties" : {
+          "campaign_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela Campaigns",
+            "format" : "int4",
+            "example" : 1
+          },
           "campaign_description" : {
             "maxLength" : 255,
             "type" : "string",
@@ -1533,6 +1539,18 @@
             "description" : "Número máximo de rediscagem de um contanto",
             "format" : "int4",
             "example" : 3
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz",
+            "example" : "2018-12-14T12:00:16.716Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Autoincremental",
+            "format" : "timestamptz",
+            "example" : "2018-12-14T12:00:16.716Z"
           }
         }
       },
