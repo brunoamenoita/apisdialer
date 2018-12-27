@@ -28,7 +28,7 @@
     "description" : "Gerenciamento de CallBacks"
   }, {
     "name" : "dialer-strategy",
-    "description" : "Gerenciamento de Estratégias Discagem"
+    "description" : "Gerenciamento de Estratégia Discagem"
   } ],
   "paths" : {
     "/campaigns" : {
