@@ -1185,7 +1185,7 @@
         }
       }
     },
-    "/schedule/confirmation/Id_campaign_uuid/Id_crm_people_id/Id_schedule_confirmation" : {
+    "/schedule/confirmation/id_campaign_uuid/id_crm_people_id/schedule_confirmation" : {
       "put" : {
         "tags" : [ "schedule" ],
         "summary" : "Update an existing schedule",
