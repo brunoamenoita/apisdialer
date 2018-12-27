@@ -1285,12 +1285,14 @@
           "call_back_name" : {
             "maxLength" : 255,
             "type" : "string",
-            "example" : "Nome do Callback"
+            "description" : "Nome Callback",
+            "example" : "Dialer Test"
           },
           "call_back_description" : {
             "maxLength" : 255,
             "type" : "string",
-            "example" : "Descrição do Callback"
+            "description" : "Descrição Callback",
+            "example" : "Description Callback Test"
           },
           "call_back_amd" : {
             "maxLength" : 255,
