@@ -37,7 +37,7 @@
     "description" : "Gerenciamento CallCenter Agents"
   } ],
   "paths" : {
-    "/campaigns" : {
+    "/campaigns/" : {
       "put" : {
         "tags" : [ "campaigns" ],
         "summary" : "Update an existing campaigns",
