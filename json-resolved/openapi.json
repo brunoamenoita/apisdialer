@@ -43,7 +43,7 @@
         "summary" : "Update an existing campaigns",
         "operationId" : "updateCampaign",
         "requestBody" : {
-          "$ref" : "#/components/requestBodies/Campaign"
+          "$ref" : "#/components/requestBodies/Campaign_Update"
         },
         "responses" : {
           "200" : {
@@ -1354,6 +1354,107 @@
         "required" : [ "call_back_uuid", "campaign_status", "dialer_strategy_uuid" ],
         "type" : "object",
         "properties" : {
+          "campaign_description" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "example" : "Campanha Dialer Test"
+          },
+          "dialer_strategy_uuid" : {
+            "type" : "integer",
+            "description" : "Estratégia de Discagem",
+            "format" : "int4",
+            "example" : 1
+          },
+          "call_back_uuid" : {
+            "type" : "integer",
+            "description" : "Módulo de Discagem",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_day_week_1" : {
+            "type" : "integer",
+            "description" : "Equivalente Domingo",
+            "format" : "int4",
+            "example" : 0
+          },
+          "campaign_day_week_2" : {
+            "type" : "integer",
+            "description" : "Equivalente Segunda-Feira",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_day_week_3" : {
+            "type" : "integer",
+            "description" : "Equivalente Terça-Feira",
+            "format" : "int4",
+            "example" : 2
+          },
+          "campaign_day_week_4" : {
+            "type" : "integer",
+            "description" : "Equivalente Quarta-Feira",
+            "format" : "int4",
+            "example" : 3
+          },
+          "campaign_day_week_5" : {
+            "type" : "integer",
+            "description" : "Equivalente Quinta-Feira",
+            "format" : "int4",
+            "example" : 4
+          },
+          "campaign_day_week_6" : {
+            "type" : "integer",
+            "description" : "Equivalente Sexta-Feira",
+            "format" : "int4",
+            "example" : 5
+          },
+          "campaign_day_week_7" : {
+            "type" : "integer",
+            "description" : "Equivalente Sábado",
+            "format" : "int4",
+            "example" : 6
+          },
+          "campaign_initial_date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "campaign_initial_time" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "example" : "08:00:00"
+          },
+          "campaign_final_date" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "campaign_final_time" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "example" : "18:00:00"
+          },
+          "campaign_status" : {
+            "type" : "integer",
+            "description" : "0-Desativada / 1-Ativada",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_redial_max" : {
+            "type" : "integer",
+            "description" : "Número máximo de rediscagem de um contanto",
+            "format" : "int4",
+            "example" : 3
+          }
+        }
+      },
+      "Campaign_Update" : {
+        "required" : [ "campaign_uuid" ],
+        "type" : "object",
+        "properties" : {
+          "campaign_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela",
+            "format" : "int4",
+            "example" : 1
+          },
           "campaign_description" : {
             "maxLength" : 255,
             "type" : "string",
@@ -2763,6 +2864,17 @@
           "application/json" : {
             "schema" : {
               "$ref" : "#/components/schemas/Campaign"
+            }
+          }
+        },
+        "required" : true
+      },
+      "Campaign_Update" : {
+        "description" : "Object Update Campaign",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Campaign_Update"
             }
           }
         },
