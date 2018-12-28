@@ -43,7 +43,7 @@
         "summary" : "Update an existing campaigns",
         "operationId" : "updateCampaign",
         "requestBody" : {
-          "$ref" : "#/components/requestBodies/Campaign"
+          "$ref" : "#/components/requestBodies/Campaign_Update"
         },
         "responses" : {
           "200" : {
