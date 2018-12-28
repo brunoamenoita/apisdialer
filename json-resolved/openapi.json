@@ -1050,7 +1050,7 @@
         "summary" : "Update an existing dialer-strategy",
         "operationId" : "updateDialerStrategy",
         "requestBody" : {
-          "$ref" : "#/components/requestBodies/DialerStrategy"
+          "$ref" : "#/components/requestBodies/DialerStrategy_Update"
         },
         "responses" : {
           "200" : {
@@ -1877,6 +1877,42 @@
       "DialerStrategy" : {
         "type" : "object",
         "properties" : {
+          "dialer_strategy_description" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Nome de Estratégia",
+            "example" : "Estratégia Test"
+          },
+          "dialer_strategy_sleep_sched_initial" : {
+            "type" : "integer",
+            "description" : "Tempo start chamada",
+            "format" : "int4",
+            "example" : 8
+          },
+          "dialer_strategy_broadcast_concurrent_limit" : {
+            "type" : "integer",
+            "description" : "Número chamada simultaneas",
+            "format" : "int4",
+            "example" : 10
+          },
+          "dialer_strategy_broadcast_timeout" : {
+            "type" : "integer",
+            "description" : "Tempo entre ciclo p/ novas chamadas",
+            "format" : "int4",
+            "example" : 60
+          }
+        }
+      },
+      "DialerStrategy_Update" : {
+        "required" : [ "dialer_strategy_uuid" ],
+        "type" : "object",
+        "properties" : {
+          "dialer_strategy_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela",
+            "format" : "int4",
+            "example" : 1
+          },
           "dialer_strategy_description" : {
             "maxLength" : 255,
             "type" : "string",
@@ -2843,7 +2879,7 @@
         "required" : true
       },
       "CallBack_Update" : {
-        "description" : "Object Added CallBack Update",
+        "description" : "Object Update CallBack",
         "content" : {
           "application/json" : {
             "schema" : {
@@ -2881,6 +2917,17 @@
           "application/json" : {
             "schema" : {
               "$ref" : "#/components/schemas/DialerStrategy"
+            }
+          }
+        },
+        "required" : true
+      },
+      "DialerStrategy_Update" : {
+        "description" : "Object Update DialerStrategy",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/DialerStrategy_Update"
             }
           }
         },
