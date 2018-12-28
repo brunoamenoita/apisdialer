@@ -675,7 +675,7 @@
         "summary" : "Update an existing campaigns-contact-calls",
         "operationId" : "updateCampaignsContactCalls",
         "requestBody" : {
-          "$ref" : "#/components/requestBodies/Campaigns_Contact"
+          "$ref" : "#/components/requestBodies/Campaigns_Contact_Calls_Update"
         },
         "responses" : {
           "200" : {
@@ -1679,6 +1679,42 @@
         "required" : [ "campaign_uuid", "campaigns_contact_uuid", "crm_people_id" ],
         "type" : "object",
         "properties" : {
+          "campaigns_contact_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela campaigns_contacts",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela campaign",
+            "format" : "int4",
+            "example" : 1
+          },
+          "crm_people_id" : {
+            "type" : "integer",
+            "description" : "Id CRM Cliente Integração",
+            "format" : "int4",
+            "example" : 403
+          },
+          "campaigns_contact_call_phone" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Telefone Contato",
+            "example" : "1839554488"
+          }
+        }
+      },
+      "Campaigns_Contact_Calls_Update" : {
+        "required" : [ "campaigns_contact_call_uuid" ],
+        "type" : "object",
+        "properties" : {
+          "campaigns_contact_call_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela",
+            "format" : "int4",
+            "example" : 1
+          },
           "campaigns_contact_uuid" : {
             "type" : "integer",
             "description" : "Id Tabela campaigns_contacts",
@@ -2971,6 +3007,16 @@
           "application/json" : {
             "schema" : {
               "$ref" : "#/components/schemas/Campaigns_Contact_Calls"
+            }
+          }
+        }
+      },
+      "Campaigns_Contact_Calls_Update" : {
+        "description" : "Object Update Campaigns_Contact_Calls",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Campaigns_Contact_Calls_Update"
             }
           }
         },
