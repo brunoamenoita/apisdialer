@@ -43,7 +43,7 @@
         "summary" : "Update an existing campaigns",
         "operationId" : "updateCampaign",
         "requestBody" : {
-          "$ref" : "#/components/requestBodies/Campaign_Update"
+          "$ref" : "#/components/requestBodies/Campaign"
         },
         "responses" : {
           "200" : {
@@ -508,28 +508,6 @@
       }
     },
     "/campaigns-contact/mailing-contacts/" : {
-      "put" : {
-        "tags" : [ "mailing-contacts" ],
-        "summary" : "Update an existing mailing-contacts",
-        "operationId" : "updateMailingContacts",
-        "requestBody" : {
-          "$ref" : "#/components/requestBodies/Mailing_Contact"
-        },
-        "responses" : {
-          "200" : {
-            "description" : "successful operation"
-          },
-          "400" : {
-            "description" : "Invalid ID supplied"
-          },
-          "404" : {
-            "description" : "Campaign not found"
-          },
-          "405" : {
-            "description" : "Method Not Allowed"
-          }
-        }
-      },
       "post" : {
         "tags" : [ "mailing-contacts" ],
         "summary" : "Add a new mailing-contacts",
