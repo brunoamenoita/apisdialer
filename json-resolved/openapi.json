@@ -838,7 +838,7 @@
         "summary" : "Update an existing call-backs",
         "operationId" : "updateCallBack",
         "requestBody" : {
-          "$ref" : "#/components/requestBodies/CallBack"
+          "$ref" : "#/components/requestBodies/CallBack_Update"
         },
         "responses" : {
           "200" : {
@@ -1578,6 +1578,126 @@
         "required" : [ "recording_uuid" ],
         "type" : "object",
         "properties" : {
+          "call_back_name" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Nome Callback",
+            "example" : "Dialer Test"
+          },
+          "call_back_description" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Descrição Callback",
+            "example" : "Description Callback Test"
+          },
+          "call_back_amd" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "AMD – Ativo/Inativo",
+            "example" : "true"
+          },
+          "call_back_amd_attemps" : {
+            "type" : "integer",
+            "description" : "Número de tentativas, caso AMD = Atendimento Máquina",
+            "format" : "int4",
+            "example" : 3
+          },
+          "call_back_amd_return_time" : {
+            "type" : "integer",
+            "description" : "Tempo de Retorno Chamada, caso AMD",
+            "format" : "int4",
+            "example" : 35
+          },
+          "recording_uuid" : {
+            "type" : "integer",
+            "description" : "Valor Padrão - 1",
+            "format" : "int4",
+            "example" : 1
+          },
+          "call_back_record_sessions" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Gravação Callback – Ativo/Inativo",
+            "example" : "true"
+          },
+          "call_back_gateway" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Nome Gateway – originador chamada",
+            "example" : "5998"
+          },
+          "call_back_sleep_start" : {
+            "type" : "integer",
+            "description" : "Valor padrão - 8 segundos",
+            "format" : "int4",
+            "example" : 8
+          },
+          "call_back_busy" : {
+            "type" : "integer",
+            "description" : "Número de tentativas, caso Ocupado",
+            "format" : "int4",
+            "example" : 3
+          },
+          "call_back_busy_return_time" : {
+            "type" : "integer",
+            "description" : "Tempo de Retorno Chamada, caso Ocupado",
+            "format" : "int4",
+            "example" : 35
+          },
+          "call_back_no_answer" : {
+            "type" : "integer",
+            "description" : "Número de tentativas, caso Não Atende",
+            "format" : "int4",
+            "example" : 3
+          },
+          "call_back_no_answer_return_time" : {
+            "type" : "integer",
+            "description" : "Tempo de Retorno Chamada, caso Não Atende",
+            "format" : "int4",
+            "example" : 35
+          },
+          "call_back_failed" : {
+            "type" : "integer",
+            "description" : "Número de tentativas, caso Falhas de Chamadas",
+            "format" : "int4",
+            "example" : 3
+          },
+          "call_back_failed_return_time" : {
+            "type" : "integer",
+            "description" : "Tempo de Retorno Chamada, caso Falhas de Chamadas",
+            "format" : "int4",
+            "example" : 35
+          },
+          "call_back_destiny" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Aplicação destino",
+            "example" : "callcenter"
+          },
+          "call_back_local_destination" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Destino",
+            "example" : "fila_discador"
+          },
+          "call_back_progress" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Valor padrão - no",
+            "example" : "no"
+          }
+        }
+      },
+      "CallBack_Update" : {
+        "required" : [ "call_back_uuid" ],
+        "type" : "object",
+        "properties" : {
+          "call_back_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela",
+            "format" : "int4",
+            "example" : 1
+          },
           "call_back_name" : {
             "maxLength" : 255,
             "type" : "string",
@@ -2673,6 +2793,17 @@
           "application/json" : {
             "schema" : {
               "$ref" : "#/components/schemas/CallBack"
+            }
+          }
+        },
+        "required" : true
+      },
+      "CallBack_Update" : {
+        "description" : "Object Added CallBack Update",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/CallBack_Update"
             }
           }
         },
