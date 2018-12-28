@@ -534,7 +534,7 @@
         "summary" : "Update an existing campaigns-contact",
         "operationId" : "updateCampaignsContact",
         "requestBody" : {
-          "$ref" : "#/components/requestBodies/Campaigns_Contact"
+          "$ref" : "#/components/requestBodies/Campaigns_Contact_Update"
         },
         "responses" : {
           "200" : {
@@ -1620,6 +1620,36 @@
             "maxLength" : 255,
             "type" : "string",
             "description" : "Opcional"
+          }
+        }
+      },
+      "Campaigns_Contact_Update" : {
+        "required" : [ "campaigns_contact_uuid" ],
+        "type" : "object",
+        "properties" : {
+          "campaigns_contact_uuid" : {
+            "type" : "integer",
+            "description" : "Id Tabela",
+            "format" : "int4",
+            "example" : 1
+          },
+          "campaign_uuid" : {
+            "type" : "integer",
+            "description" : "Id Campanha",
+            "format" : "int4",
+            "example" : 1
+          },
+          "crm_people_id" : {
+            "type" : "integer",
+            "description" : "Id CRM Cliente Integração",
+            "format" : "int4",
+            "example" : 403
+          },
+          "campaigns_contact_name" : {
+            "maxLength" : 255,
+            "type" : "string",
+            "description" : "Nome do Contato",
+            "example" : "Paulo"
           }
         }
       },
@@ -2897,6 +2927,17 @@
           "application/json" : {
             "schema" : {
               "$ref" : "#/components/schemas/Campaigns_Contact"
+            }
+          }
+        },
+        "required" : true
+      },
+      "Campaigns_Contact_Update" : {
+        "description" : "Object Update Campaigns_Contact",
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/Campaigns_Contact_Update"
             }
           }
         },
