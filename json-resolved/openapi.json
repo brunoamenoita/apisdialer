@@ -1233,14 +1233,36 @@
         }
       }
     },
-    "/schedule/phone/inactive/{campaign_uuid/crm_people_id/schedule_phone}" : {
+    "/schedule/phone/inactive/{campaign_uuid}/{crm_people_id}/{schedule_phone}" : {
       "put" : {
         "tags" : [ "schedule" ],
         "summary" : "Schedule Inactive Phone",
         "parameters" : [ {
-          "name" : "campaign_uuid/crm_people_id/schedule_phone",
+          "name" : "campaign_uuid",
           "in" : "path",
-          "description" : "Example == campaign_uuid = 1, crm_people_id = 10, schedule_phone = 1735225444 /// essa rota desativa um número telefone do contrato, para não ser mais discado.",
+          "description" : "Example == campaign_uuid = 1",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        }, {
+          "name" : "crm_people_id",
+          "in" : "path",
+          "description" : "Example == crm_people_id = 10",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        }, {
+          "name" : "schedule_phone",
+          "in" : "path",
+          "description" : "Example == schedule_phone = 1735225444 /// essa rota desativa um número telefone do contrato, para não ser mais discado.",
           "required" : true,
           "style" : "simple",
           "explode" : false,
