@@ -1188,14 +1188,36 @@
         }
       }
     },
-    "/schedule/confirmation/{campaign_uuid/crm_people_id/schedule_confirmation}" : {
+    "/schedule/confirmation/{campaign_uuid}/{crm_people_id}/{schedule_confirmation}" : {
       "put" : {
         "tags" : [ "schedule" ],
         "summary" : "Schedule Type Confirmation",
         "parameters" : [ {
-          "name" : "campaign_uuid/crm_people_id/schedule_confirmation",
+          "name" : "campaign_uuid",
           "in" : "path",
-          "description" : "Examples == campaign_uuid = 1, crm_people_id = 10, schedule_confirmation = 0 – contato não produtivo, disca p/ outros números do contrato /// schedule_confirmation = 1 – contato produtivo e eficaz, não disca mais p/ nenhum número do contrato /// schedule_confirmation = 2 – contato não produtivo e sem interesse, não disca mais p/ nenhum número do contrato",
+          "description" : "Example == campaign_uuid = 1",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        }, {
+          "name" : "crm_people_id",
+          "in" : "path",
+          "description" : "Example ==  crm_people_id = 10",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int4"
+          }
+        }, {
+          "name" : "schedule_confirmation",
+          "in" : "path",
+          "description" : "Examples == schedule_confirmation = 0 – contato não produtivo, disca p/ outros números do contrato /// schedule_confirmation = 1 – contato produtivo e eficaz, não disca mais p/ nenhum número do contrato /// schedule_confirmation = 2 – contato não produtivo e sem interesse, não disca mais p/ nenhum número do contrato",
           "required" : true,
           "style" : "simple",
           "explode" : false,
