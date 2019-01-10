@@ -9,8 +9,7 @@
     "version" : "1.0.0"
   },
   "servers" : [ {
-    "url" : "http://catix4.optjuntos.com.br:8084/dialer",
-    "description" : "API Server"
+    "url" : "/"
   } ],
   "tags" : [ {
     "name" : "call-backs",
