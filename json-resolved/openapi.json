@@ -10,7 +10,7 @@
   },
   "servers" : [ {
     "url" : "http://catix4.optjuntos.com.br:8084/dialer",
-    "description" : "SwaggerHub API Auto Mocking"
+    "description" : "API Server"
   } ],
   "tags" : [ {
     "name" : "call-backs",
