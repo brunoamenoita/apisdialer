@@ -4,7 +4,7 @@
     "title" : "APIS Integration Dialer Catix4",
     "description" : "Documentação APIS - Dialer Catix4\n",
     "contact" : {
-      "email" : "desenvolvimento@optjuntos.com.br"
+      "email" : "desenvolvimento@optfranchising.com.br"
     },
     "version" : "1.0.0"
   },
@@ -1868,12 +1868,6 @@
             "type" : "string",
             "description" : "Destino",
             "example" : "fila_discador"
-          },
-          "call_back_progress" : {
-            "maxLength" : 255,
-            "type" : "string",
-            "description" : "Valor padrão - no",
-            "example" : "no"
           }
         }
       },
@@ -1988,12 +1982,6 @@
             "type" : "string",
             "description" : "Destino",
             "example" : "fila_discador"
-          },
-          "call_back_progress" : {
-            "maxLength" : 255,
-            "type" : "string",
-            "description" : "Valor padrão - no",
-            "example" : "no"
           }
         }
       },
